@@ -53,7 +53,7 @@
 						<div class="item__product__image _ibg">
 							<img src="../<?php echo $product['pathImage']?>" alt="">
 						</div>
-						<div class="nameAndType">
+						<div class="nameAndType"> 
 							<p><?php echo $product['name']?></p>
 							<p><?php echo $product['nameCategory']?></p>
 						</div>
