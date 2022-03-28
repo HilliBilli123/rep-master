@@ -7,10 +7,17 @@
     $name = $_POST['name'];
     $price = $_POST['price'];
     $harackter = $_POST['harackter'];
-    //include "../inc/connect.php";
-    //$connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
-    mysqli_query($connect, "INSERT INTO `products` (`name`, `pathImage`, `price`, `harackter`, `type`, `idStock`, `nameKz`, `harakterKz`) VALUES ('$name', ' ', '$price', '$harackter', '1', '1', ' ', ' ')");
-    
+    $category = $_POST['nameCategory'];
+    $path = 'admin/upload/'.time().$_FILES['file']['name'];
+    if($_FILES["file"]["name"]){
+        if(!move_uploaded_file($_FILES['file']['tmp_name'], '../'. $path)){
+            $_SESSION['message'] = 'Ошибка при загрузке фото';
+            header('Location: ../pages/manufacturesMain.php');
+        }
+        mysqli_query($connect, "INSERT INTO `products` (`name`, `pathImage`, `price`, `harackter`, `type`, `idStock`, `nameKz`, `harakterKz`) VALUES ('$name', '$path', '$price', '$harackter', '$category', '1', ' ', ' ')");
+    }  else{
+        $_SESSION['message'] = 'Загрузите фото';
+    }
     //ini_set('date.timezone', 'Asia/Almaty');
     header('Location: ../pages/productMain.php');
 ?>
