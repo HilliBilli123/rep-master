@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'icons';
+  src:  url('../response/fontsFooter/icons.eot?g60ste');
+  src:  url('../response/fontsFooter/icons.eot?g60ste#iefix') format('embedded-opentype'),
+    url('../response/fontsFooter/icons.ttf?g60ste') format('truetype'),
+    url('../response/fontsFooter/icons.woff?g60ste') format('woff'),
+    url('../response/fontsFooter/icons.svg?g60ste#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"]::before, [class*=" icon-"]::before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-edit:before {
+  content: "\e900";
+  font-size: 24px;
+}
+.icon-pencil1:before {
+  content: "\e901";
+}
+.icon-pencil:before {
+  content: "\e905";
+}
+.icon-pencil2:before {
+  content: "\e906";
+}
+.icon-bin:before {
+  content: "\e9ac";
+  font-size: 24px;
+}
+.icon-bin2:before {
+  content: "\e9ad";
+}
+.icon-location2:before {
+  content: "\e200";
+  padding-right: 5px;
+}
+.icon-facebook2:before {
+  content: "\ea201";
+  padding-right: 5px;
+}
+.icon-instagram:before {
+  content: "\ea202";
+  padding-right: 5px;
+}
+.icon-whatsapp:before {
+  content: "\ea203";
+  padding-right: 5px;
+}
+.icon-telegram:before {
+  content: "\ea204";
+  padding-right: 5px;
+}

@@ -1,0 +1,144 @@
+
+._ibg {
+    position: relative;
+}
+
+._ibg img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.image-slider {
+	/* padding: 30px 0 70px 0; */
+	/* overflow: hidden; */
+	position: relative;
+	min-height: 100vh;
+}
+
+.image-slider__slide {
+}
+
+.image-slider__image {
+    position: absolute;    
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* Стрелки */
+.image-slider .swiper-button-prev,
+.image-slider .swiper-button-next {
+    color: #fff;
+    font-size: 100px;
+}
+/* Пагинация */
+.image-slider .swiper-pagination {
+    bottom: 20px;
+}
+
+/* Буллеты */
+.image-slider .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+
+.image-slider__contain {
+    max-width: 850px;
+    margin: 200px 0px 0px 150px ;
+    /* border-radius: 10px; */
+    position: relative;
+    z-index: 2;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    background-color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    /* box-shadow: 1px 1px 5px black; */
+}
+
+@media (max-width: 992px) {
+    .image-slider__contain {
+        margin: 150px 0px 0px 100px ;
+    }
+}
+
+@media (max-width: 800px) {
+    .image-slider__contain {
+        margin: 100px 0px 0px 50px ;
+    }
+}
+
+@media (max-width: 700px) {
+    .image-slider__contain {
+        margin: 50px 0px 0px 0px ;
+    }
+}
+.image-slider__contain > *:not(:last-child) {
+    margin: 0px 0px 15px 0px;
+}
+.slider-contain {
+
+}
+
+.slider-contain__text {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 35px;
+    color: #182D4C;
+    font-size: 20px;
+
+}
+
+.slider-contain__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 70px;
+    color: #182D4C;
+    font-size: 48px;
+}
+.fontSize36 {
+    font-size: 36px;
+}
+.fontSize64 {
+    font-size: 64px;
+}
+
+
+.slider-contain__buttons {
+    display: inline-flex;
+}
+
+.slider-contain__button {
+    border-radius: 10px;
+    background-color: #182d4cce;
+    min-height: 48px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.2px;
+    align-items: center;
+    line-height: 150%;
+    border: 2px solid #182D4C;
+    color: #fff;
+    padding: 5px 54px;
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+
+.slider-contain__button:hover {
+    background-color: #fff;
+    color: #182D4C;
+}

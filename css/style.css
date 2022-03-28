@@ -1,0 +1,287 @@
+@import url("clear.css");
+@import url("common.css");
+@import url("slider.css");
+@import url("fonsFooter.css");
+@import url("footer.css");
+
+body {
+	color: black;
+}
+
+/* Header + NavBar */
+
+.header__main {
+	background-color: #182D4C;
+	position: sticky;
+	z-index: 6;
+	width: 100%;
+	top: 0;
+}
+
+.header__main__plus {
+	transition: all 0.5s;
+	background-color: #182d4c91;
+}
+
+.header__body {
+	padding: 0 20px;
+}
+
+
+.header__body__menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 70px;
+}
+
+.menu__logo {
+	max-width: 100px;
+	text-align: center;
+	height: 100%;
+	color: white;
+	padding: 5px;
+	background-color: white;
+	/* object-fit: cover; */
+	/* filter: brightness(0) invert(1); */
+}
+
+.menu__logo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.menu__link a {
+	font-size: 18px;
+	color: white;
+}
+
+.menu__lang {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu__lang {
+	object-fit: cover;
+	object-position: center;
+	height: 40px;
+	width: 40px;
+}
+
+.menu__lang img {
+	width: 100%;
+	/* height: 100%; */
+	object-fit: cover;
+}
+
+/* Header + NavBar end */
+
+/* About Page */
+.about {
+	background-color: #182D4C;
+	transition: all 0.5s;
+	color: white;
+}
+
+.main__about {
+	/* display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 0px; */
+}
+
+.photo__contein {
+	max-width: 450px;
+	padding: 40px;
+	/* height: 400px; */
+	position: relative;
+	overflow: hidden;
+}
+
+.photo__text__contein {
+	flex: 1 1 auto;
+	top: 0;
+	left: 0;
+	height: 100%;
+	padding: 10px;
+}
+
+.text__contein__title {
+	font-size: 32pt;
+	font-weight: 700;
+}
+
+.text__contein__text {
+	font-size: 24pt;
+}
+
+.photo__contein:hover .photo__text__contein {
+	opacity: 1;
+	transform: translateY(0);
+	visibility: visible;
+}
+
+.photo__contein img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	filter: invert(1);
+}
+
+.main__about__photo {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	/* flex-wrap: wrap; */
+}
+
+.main__about__text {
+	width: 50%;
+}
+
+.about {
+	padding: 50px 0px;
+	/* text-align: center; */
+}
+
+.about__title {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.main__about__text p {
+	font-size: 18px;
+	line-height: 2;
+	font-weight: 700;
+}
+
+/* About END */
+
+/* Specification */
+.specification {
+	background-color: white;
+	color: #182D4C;
+	padding: 120px 0px;
+}
+
+/* .specification__body {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+} */
+
+.specification__card {
+	width: 400px;
+	height: 700px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0px 60px;
+}
+
+.card__logo {
+	height: 200px;
+	width: 300px;
+	text-align: center;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.card__logo img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+.card__title {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.card__text {
+	font-size: 18px;
+	font-weight: 700;
+	padding-bottom: 20px;
+}
+
+.specification__slider__contein {
+	overflow: hidden;
+}
+
+
+@media (max-width: 1024px) {
+	/* About */
+	.photo__contein{
+		max-width: 350px;
+		padding: 30px;
+	}
+	.text__contein__title {
+		font-size: 24px;
+		font-weight: 700;
+	}
+	
+	.text__contein__text {
+		font-size: 18px;
+	}
+	/* About end */
+	/* Specification */
+	.card__title {
+		font-size: 16px;
+		font-weight: 700;
+	}
+	
+	.card__text {
+		font-size: 14px;
+		font-weight: 700;
+		padding-bottom: 20px;
+	}
+	.specification{
+		padding: 60px 0;
+	}
+
+	/* Specification end */
+}
+@media (max-width: 720px) {
+	/* About */
+	.photo__contein{
+		max-width: 150px;
+		padding: 20px;
+	}
+	.about {
+		padding: 20px 0px;
+	}
+	.text__contein__title {
+		font-size: 14px;
+		font-weight: 700;
+	}
+	
+	.text__contein__text {
+		font-size: 12px;
+	}
+	/* About */
+	/* Specification */
+	.card__text{
+		display: none;
+	}
+	.card__logo{
+		width: 150px;
+		height: 100px;
+		padding: 5px;
+	}
+}
+.product_img{
+	width: 250px;
+	height: 300px;
+}
+.product_img img{
+	width: 250px;
+	height: 300px;
+}
