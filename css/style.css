@@ -26,8 +26,15 @@ body {
 .header__body {
 	padding: 0 20px;
 }
-
-
+.menu__auth{
+	height: 70px;
+	padding: 10px;
+}
+.menu__auth img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 .header__body__menu {
 	display: flex;
 	justify-content: space-between;

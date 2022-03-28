@@ -79,8 +79,8 @@
                     <div class="table__title">password</div>
                     <div class="table__title">city</div>
                     <div class="table__title">lastName</div>
-                    <div class="table__title">firstName</div>
-                    <div class="table__title">middleName</div>
+                    <!-- <div class="table__title">firstName</div>
+                    <div class="table__title">middleName</div> -->
                     <div class="table__title">email</div>
                     <div class="table__title">phone</div>
                     <div class="table__title">редактировать</div>
@@ -97,9 +97,9 @@
                     <div class="table__title"><?php echo $product['login']?></div>
                     <div class="table__title"><?php echo $product['password']?></div>
                     <div class="table__title"><?php echo $product['cityName']?></div>
-                    <div class="table__title"><?php echo $product['lastName']?></div>
-                    <div class="table__title"><?php echo $product['firstName']?></div>
-                    <div class="table__title"><?php echo $product['middleName']?></div>
+                    <div class="table__title"><?php echo $product['lastName'] ," ",$product['firstName'], " " , $product['middleName']?></div>
+                    <!-- <div class="table__title"><?php echo $product['firstName']?></div>
+                    <div class="table__title"><?php echo $product['middleName']?></div> -->
                     <div class="table__title"><?php echo $product['email']?></div>
                     <div class="table__title"><?php echo $product['phone']?></div>
                     <div class="table__title">
@@ -139,5 +139,6 @@
             </div>
     </div>
     </div>
+    <script src="../js/popap.js"></script>
 </body>
 </html>
