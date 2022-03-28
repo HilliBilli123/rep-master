@@ -5,7 +5,7 @@
     }*/
     include "../inc/connect.php";
     //$connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
-    $result = mysqli_query($connect,"SELECT user.*, city.name AS cityName, city.nameKz AS cityNameKz FROM `user` join city on user.city = city.id");
+    $result = mysqli_query($connect,"SELECT * FROM `city`");
     //print_r($result);
     //ini_set('date.timezone', 'Asia/Almaty');
 ?>
@@ -22,14 +22,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
-    <title>User Panel</title>
+    <title>City Panel</title>
 </head>
 <body>
-    <!-- <a href="admin.php">На главную</a> -->
+    
+    
     <!-- <form action="" method = "post" enctype = "multipart/form-data"> -->
     
     <!-- </form> -->
-    <div class="user flex__content">
+    <div class="manufactures">
         <div class="menu__admin__pages">
             <div class="menu__admin__pages__contain">
                 <div class="menu__admin__pages__logo">
@@ -41,32 +42,37 @@
                     <a href="" class="manufact__link">Производители</a>
                     <a href="" class="manufact__link">Категории</a>
                     <a href="" class="manufact__link">Пользоваетели</a>
+                    <a href="" class="manufact__link">Город</a>
+                    <a href="" class="manufact__link">Откос</a>
+                    <a href="" class="manufact__link">Заказ</a>
                     <!-- <a href="" class="manufact__link"></a>
                     <a href="" class="manufact__link"></a> -->
                 </div>
             </div>
         </div>
-    <!-- <a href="userAdd.php">Добавить</a> -->
-    <div class="table">
+        <div class="table">
             <div class="buttons__add">
                 <a href="" class="button__add">Добавить</a>
                 <div class="popap__window"> 
                     <div class="popap__window__conten">
-                        <form action="../inc/userAdd.php" enctype="multipart/form-data" method="post" class="popap__form">    
-                            <div class="popap__title">Редактирование</div>
+                        <form action="../inc/cityAdd.php" enctype="multipart/form-data" method="post" class="popap__form">    
+                            <div class="popap__title">Добавление</div>
                             <div class="popap__out">X</div>
                             <div class="popap__all">
                                 <div class="popap__text">
-                                    <label for="" class="popap__lable" >Описание на русском</label>
-                                    <input name="text" type="text" class="popap__lable">
+                                    <label for="" class="popap__lable" >Код</label>
+                                    <input name="code" type="text" class="popap__lable">
                                 </div>
                                 <div class="popap__text">
-                                    <label for="" class="popap__lable" >Описание на казахском</label>
-                                    <input type="text" name="textKz" class="popap__lable">
+                                    <label for="" class="popap__lable" >Наименование</label>
+                                    <input type="text" name="name" class="popap__lable">
                                 </div>
-                                <input type="file" name="file" id="" accept="image/jpeg,image/png">
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable" >Наименование на казахском</label>
+                                    <input type="text" name="nameKz" class="popap__lable">
+                                </div>
                                 <br>
-                                <button type="submit">Сохронить</button>
+                                <button type="submit">Сохранить</button>
                             </div>
                         </form>
                     </div>
@@ -75,14 +81,9 @@
             <div class="table__contain">
                 <div class="table__content flex__content table__header">
                     <div class="table__title__number">№</div>
-                    <div class="table__title">login</div>
-                    <div class="table__title">password</div>
-                    <div class="table__title">city</div>
-                    <div class="table__title">lastName</div>
-                    <div class="table__title">firstName</div>
-                    <div class="table__title">middleName</div>
-                    <div class="table__title">email</div>
-                    <div class="table__title">phone</div>
+                    <div class="table__title">Код</div>
+                    <div class="table__title">Наименование</div>
+                    <div class="table__title">Наименование на казахском</div>
                     <div class="table__title">редактировать</div>
                     <div class="table__title">удалить</div>
                 </div>
@@ -94,50 +95,53 @@
                 ?>
                 <div class="table__content flex__content">
                     <div class="table__title__number"><?php echo $count?></div>
-                    <div class="table__title"><?php echo $product['login']?></div>
-                    <div class="table__title"><?php echo $product['password']?></div>
-                    <div class="table__title"><?php echo $product['cityName']?></div>
-                    <div class="table__title"><?php echo $product['lastName']?></div>
-                    <div class="table__title"><?php echo $product['firstName']?></div>
-                    <div class="table__title"><?php echo $product['middleName']?></div>
-                    <div class="table__title"><?php echo $product['email']?></div>
-                    <div class="table__title"><?php echo $product['phone']?></div>
+                    <div class="table__title"><?php echo $product['code']?></div>
+                    <div class="table__title"><?php echo $product['name']?></div>
+                    <div class="table__title"><?php echo $product['nameKz']?></div>
                     <div class="table__title">
                         <a class="icon-edit" href=""></a>
                         <div class="popap__window"> 
                             <div class="popap__window__conten">
-                                <form action="../inc/userEdit.php" enctype="multipart/form-data" method="post" class="popap__form">    
+                                <form action="../inc/cityEdit.php" enctype="multipart/form-data" method="post" class="popap__form">    
                                     <div class="popap__title">Редактирование</div>
                                     <div class="popap__out">X</div>
                                     <div class="popap__all">
+                                    <div class="popap__text">
+                                            <label for="" class="popap__lable" >Код</label>
+                                            <input name="code" type="text" class="popap__lable" value="<?php echo $product['code']?>">
+                                        </div>                                        
                                         <div class="popap__text">
-                                            <label for="" class="popap__lable" >Описание на русском</label>
-                                            <input name="text" type="text" class="popap__lable" value="<?php echo $product['text']?>">
+                                            <label for="" class="popap__lable" >Наименование</label>
+                                            <input name="name" type="text" class="popap__lable" value="<?php echo $product['name']?>">
                                         </div>
                                         <div class="popap__text">
-                                            <label for="" class="popap__lable" >Описание на казахском</label>
-                                            <input type="text" name="textKz" class="popap__lable" value="<?php echo $product['textKz'] ?>">
+                                            <label for="" class="popap__lable" >Наименование казахском</label>
+                                            <input type="text" name="nameKz" class="popap__lable" value="<?php echo $product['nameKz'] ?>">
                                         </div>
-                                        <input type="file" name="file" id="" accept="image/jpeg,image/png">
                                         <input type="text" name="id" style="display: none;" value="<?php echo $product['id']?>"> 
                                         <br>
-                                        <button type="submit">Сохронить</button>
+                                        <button type="submit">Сохранить</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                     <div class="table__title">
-                    <form action="../inc/userDelete.php">
-                        <a class="icon-bin" href="../inc/userDelete.php?id=<?php echo $product['id']; ?>"></a>
-                    </form>
+                        <form action="../inc/cityDelete.php">
+                            <a class="icon-bin" href="../inc/cityDelete.php?id=<?php echo $product['id']; ?>"></a>
+                        </form>
                     </div>
-                </div>
-        <?php
-            }
-        ?>
+                </div>   
+                <?php
+                    }
+                    if($_SESSION['message']){
+                        echo '<p class="msg"> ' . $_SESSION['message'] .  ' </p> ';
+                    }
+                    unset($_SESSION['message']);
+                    ?>  
             </div>
+        </div>
     </div>
-    </div>
+    <script src="../js/popap.js"></script>
 </body>
 </html>
