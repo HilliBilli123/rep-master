@@ -34,31 +34,36 @@
 				<li class="menu__link"><a href="">Контакты</a></li>
 				<li>
 					<ul class="menu__lang">
-						<img src="response/image/flagKz.png" alt="">
-						<img src="response/image/flagRu.png" alt="">
+						<img src="../response/image/flagKz.png" alt="">
+						<img src="../response/image/flagRu.png" alt="">
 					</ul>
 				</li>
 			</ul>
 		</div>
 	</header>
-    <section class="main">
-        <?php
-        foreach($result as $product)
-            {
-        ?>
-            <div class="product">
-                <div class = "product_img">
-                    <img src="../<?php echo $product['pathImage']?>" alt="">   
-                </div>
-                <div class="nameAndType">
-                    <p><?php echo $product['name']?></p>
-                    <p><?php echo $product['nameCategory']?></p>
-                </div>
-                <a href="productCalculate.php?id=<?php echo $product['id']; ?>">Подробнее</a>
-            </div>
-        <?php
-            }
-        ?>
+    <section class="page__products products">
+        <div class="products-container _contein">
+			<h2 class="products__title _title"></h2>
+			<div class="products__items">
+				<?php
+				foreach($result as $product)
+					{
+				?>
+					<div class="products__item item__product">
+						<div class="item__product__image _ibg">
+							<img src="../<?php echo $product['pathImage']?>" alt="">
+						</div>
+						<div class="nameAndType">
+							<p><?php echo $product['name']?></p>
+							<p><?php echo $product['nameCategory']?></p>
+						</div>
+						<a href="productCalculate.php?id=<?php echo $product['id']; ?>">Подробнее</a>
+					</div>
+				<?php
+					}
+				?>
+			</div>	
+		</div>	
     </section>
     <footer class="footer">
 		<div class="footer__cpntainer _contein">
