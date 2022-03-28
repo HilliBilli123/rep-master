@@ -1,3 +1,3 @@
 <?php
-    $connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
+    $connect = mysqli_connect('localhost', 'root' , '' , 'bibala');
     
