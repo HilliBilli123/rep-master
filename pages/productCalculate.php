@@ -9,7 +9,7 @@
     // var_damp($_GET)
     // printf($id)
     // $connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
-    $result = mysqli_query($connect,"SELECT products.*, category.nameCategory, category.nameCategoryKz, category.price FROM `products` join category on category.id = products.type WHERE products.id = '$id'");
+    $result = mysqli_query($connect,"SELECT products.*, category.nameCategory, category.nameCategoryKz, category.price AS categoryPrice FROM `products` join category on category.id = products.type WHERE products.id = '$id'");
     $otkos = mysqli_query($connect, "select * from otkos")
     // print_r($result);
     //ini_set('date.timezone', 'Asia/Almaty');
@@ -60,20 +60,43 @@
                     <p><?php echo $product['harackter']?></p>
                 </div>
                 <div class="calculate">
-                <form action="../" method="POST">
-                    <input type="text" name="width" placeholder="Ширина">
-                    <input type="text" name="height" placeholder="Высота">
-                    <?php
-                    foreach($otkos as $valueOtkos)
-                        {
-                    ?>  
-                    <input type="radio" id="Choice<?php echo $valueOtkos['id']?>" name="contact<?php echo $valueOtkos['id']?>" value="<?php echo $valueOtkos['ot']?>">
-                    <label for="Choice<?php echo $valueOtkos['id']?>"><?php echo $valueOtkos['ot']?> - <?php echo $valueOtkos['do']?></label>
-                    <?php
-                        }
-                    ?>                  
-                    <button type="submit">Добавить в корзину</button>
-                </form>
+                    <form action="../inc/createZakazProc.php" method="POST" name = "myForm">
+                        <input type="text" name="productId" value="<?php echo $product['id']?>" style = "display:none;"> 
+                        <input type="text" name="width" id = "width" placeholder="Ширина" oninput="calcualte()">
+                        <input type="text" name="height" id = "height" placeholder="Высота" oninput="calcualte()">
+                        <?php
+                        foreach($otkos as $valueOtkos)
+                            {
+                        ?>  
+                        <input type="radio" id="<?php echo $valueOtkos['price']?>" name="otkosId" value="<?php echo $valueOtkos['id']?>">
+                        <label for="Choice<?php echo $valueOtkos['id']?>"><?php echo $valueOtkos['ot']?> - <?php echo $valueOtkos['do']?></label>
+                        <?php
+                            }
+                        ?> 
+                        <input id = "price" type="text" name="price">
+                        <label for="price">Цена</label>
+                        <input type="text" id = "priceKvm" value = "<?php echo $product['categoryPrice']?>" style = "display:none">
+                        <script>
+                            function calcualte(){
+                                var x = parseFloat(document.getElementById("width").value)||0; 
+                                var y = parseFloat(document.getElementById("height").value)||0;
+                                var kvm = parseFloat(document.getElementById("priceKvm").value)||0;
+                                document.getElementById("price").value = (x * 0.001 + y * 0.001) * kvm;
+                            }
+                            function onclick(e){
+                                    language = parseFloat(e.target.id)||0;
+                                    var x = parseFloat(document.getElementById("width").value)||0; 
+                                    var y = parseFloat(document.getElementById("height").value)||0;
+                                    var kvm = parseFloat(document.getElementById("priceKvm").value)||0;
+                                    var total = (x * 0.001 + y * 0.001) * kvm;
+                                    document.getElementById("price").value = total + language;
+                                }
+                                for (var i = 0; i < myForm.otkosId.length; i++) {
+                                    myForm.otkosId[i].addEventListener("click", onclick);
+                                }
+                        </script>
+                        <button type="submit">Добавить в корзину</button>
+                    </form>
                 </div>
             </div>
     </section>
