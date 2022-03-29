@@ -46,13 +46,13 @@ session_start();
 		</div>
 	</header>
     <section class="page__products products">
-		<div class="product__menu">
+		<div class="product__menu _contein">
 			<ul class="product__body__menu">
 				<?php
 				foreach($category as $type)
 					{
 				?>
-					<li class="menu__link"><a href="../inc/productFilter.php?id=<?php echo $type['id'];?>"><?php echo $type['nameCategory']?></a></li>
+					<li class="product__menu__link"><a href="../inc/productFilter.php?id=<?php echo $type['id'];?>"><?php echo $type['nameCategory']?></a></li>
 				<?php
 					}
 				?>	
@@ -76,8 +76,8 @@ session_start();
 								<div class="item__product__text">
 									<?php echo $product['nameCategory']?>
 								</div>
-								<div class="slider-contain__buttons">
-									<a href="productCalculate.php?id=<?php echo $product['id']; ?>" class="slider-contain__button">Подробнее</a>
+								<div class="item__product__buttons">
+									<a href="productCalculate.php?id=<?php echo $product['id']; ?>" class="item__product__button">Подробнее</a>
 								</div>
 							</div>		
 						</div>

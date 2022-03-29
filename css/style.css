@@ -318,12 +318,62 @@ body {
 
 .page__products {
 }
+
+.product__menu {
+	padding: 20px 0px;
+}
+
+.product__body__menu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* .product__body__menu > *:not(:last-child) {
+	margin: 0px 10px 0px 0px;
+} */
+
+.product__menu__link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #182d4cc7;
+	border-left: 0.5px solid #182d4c;
+	border-top: 0.5px solid #182d4c;
+	border-bottom: 0.5px solid #182d4c;
+	padding: 0px 10px;
+	min-width: 150px;
+	height: 40px;
+	transition: 0.5s all;
+	cursor: pointer;
+}
+
+.product__menu__link a {
+	color: #fff;
+	font-size: 1vw;
+	transition: 0.5s all;
+}
+
+.product__menu__link:hover {
+	background-color: #fff;
+	color: #182d4c;
+}
+
+.product__menu__link:hover a {
+	color: #182d4c;
+}
+
+.product__menu__link:last-child {
+	border-right: 0.5px solid #182d4c;
+}
+
 .products {
-	padding-bottom: 40px;
-	padding-top: 100px;
+	/* padding-bottom: 40px;
+	padding-top: 50px; */
 }
 .products-container {
 }
+
 
 .products__title {
 }
@@ -401,13 +451,14 @@ body {
 	line-height: 21px;
 	color: rgb(145, 143, 143);
 }
-.slider-contain__buttons {
+.item__product__buttons {
 	display: inline-flex;
 	width: 100%;
 	padding: 10px;
 }
-.slider-contain__button {
+.item__product__button {
     background-color: #fff;
+	border-radius: 35px;
     min-height: 30px;
 	width: 100%;
     display: flex;
@@ -422,7 +473,78 @@ body {
     transition: all 0.5s;
 }
 
-.slider-contain__button:hover {
+.item__product__button:hover {
 	background-color: rgba(255, 255, 255, 0.158);
 	color: #fff;
+}
+
+/* ==================== страница Калькулятор ========================================= */
+
+.product {
+	display: flex;
+	/* justify-content: space-between;
+	align-items: center; */
+}
+
+.product__harackter__content{
+	width: 35%;
+	
+}
+
+
+.harackter{
+	padding: 10px;
+}
+
+.product_img {
+	text-align: center;
+	max-height: 500px;
+}
+
+.product_img img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+}
+
+.harackter__title {
+	color: #182D4C;
+	letter-spacing: 0.1vw;
+	font-size: 1.3vw;
+}
+
+.harackter__text {
+	color: #182D4C;
+	font-size: 1vw;
+}
+
+.product__calculate {
+	flex: 1 1 auto;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 10px;
+}
+
+._mainTitle {
+	text-align: center;
+	color: #182D4C;
+	font-size: 1.3vw;
+}
+
+.product__calculate__parametr {
+	/* display: flex;
+	flex-direction: column; */
+	max-width: 300px;
+	max-height: 300px;
+	padding: 10px;
+	border: 2px solid #182D4C;
+}
+
+.product__calculate__size > *:not(:last-child) {
+	margin: 0px 0px 5px 0px;
+}
+
+.calculate__parametr__title {
+	color: #182D4C;
+	font-size: 1vw;
 }
