@@ -17,6 +17,15 @@
     $result3 = mysqli_query($connect,"SELECT count(*) FROM `user`");
     $result3 = mysqli_fetch_assoc($result3);
     $count3 = $result3['count(*)'];
+    $result4 = mysqli_query($connect,"SELECT count(*) FROM `city`");
+    $result4 = mysqli_fetch_assoc($result4);
+    $count4 = $result4['count(*)'];
+    $result5 = mysqli_query($connect,"SELECT count(*) FROM `otkos`");
+    $result5 = mysqli_fetch_assoc($result5);
+    $count5 = $result5['count(*)'];
+    $result6 = mysqli_query($connect,"SELECT count(*) FROM `zakaz`");
+    $result6 = mysqli_fetch_assoc($result6);
+    $count6 = $result6['count(*)'];
     // print_r($count['count']);
 ?>
 
@@ -54,6 +63,18 @@
                 <a href="userMain.php" class="circle__internal">
                     <div class="circle__text">Пользователи</div>
                     <div class="cout"><?php echo $count3?></div>
+                </a>
+                <a href="cityMain.php" class="circle__internal">
+                    <div class="circle__text">Город</div>
+                    <div class="cout"><?php echo $count4?></div>
+                </a>
+                <a href="otkosMain.php" class="circle__internal">
+                    <div class="circle__text">Откос</div>
+                    <div class="cout"><?php echo $count5?></div>
+                </a>
+                <a href="zakazMain.php" class="circle__internal">
+                    <div class="circle__text">Заказ</div>
+                    <div class="cout"><?php echo $count6?></div>
                 </a>
             </div>
         </div>

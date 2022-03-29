@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    include "inc/connect.php";
+    $result = mysqli_query($connect,"SELECT * FROM `contacts` WHERE `id` = '1'");
+	$result = mysqli_fetch_assoc($result)
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,15 +24,17 @@
 				<li class="menu__logo"><img src="response/image/logo.png" alt="logo"></li>
 				<li class="menu__link"><a href="">Главная</a></li>
 				<li class="menu__link"><a href="/pages/products.php">Товары</a></li>
-				<li class="menu__link"><a href="">Услуги</a></li>
 				<li class="menu__link"><a href="/pages/basket.php">Корзина</a></li>
 				<li class="menu__link"><a href="">Контакты</a></li>
-				<li>
+				<!-- <li>
 					<ul class="menu__lang">
 						<img src="response/image/flagKz.png" alt="">
 						<img src="response/image/flagRu.png" alt="">
 					</ul>
-				</li>
+				</li> -->
+				<li class="menu__link menu__auth"><a href="/pages/singin.php">
+					<img src="response/image/userIcon.png" alt="">
+				</a></li>
 			</ul>
 		</div>
 	</header>
@@ -199,7 +208,7 @@
 						<li><a href="" class="footer__socialMedia__link icon-facebook2">Dauletbekfacebook</a></li>
 						<li><a href="" class="footer__socialMedia__link icon-instagram">DauletbekInstagram</a></li>
 						<li><a href="" class="footer__socialMedia__link icon-telegram">DauletbekTelegram</a></li>
-						<li><a href="" class="footer__socialMedia__link icon-telegram">DauletbekEmail</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-telegram"><?php echo $result["email"]?></a></li>
 					</ul>
 				</div>
 			</div>

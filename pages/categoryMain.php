@@ -78,6 +78,7 @@
                 <div class="table__title">code</div>
                 <div class="table__title">name</div>
                 <div class="table__title">nameKz</div>
+                <div class="table__title">price</div>
                 <div class="table__title">редактировать</div>
                 <div class="table__title">удалить</div>
             </div>
@@ -92,6 +93,7 @@
                 <div class="table__title"><?php echo $product['code']?></div>
                 <div class="table__title"><?php echo $product['nameCategory']?></div>
                 <div class="table__title"><?php echo $product['nameCategoryKz']?></div>
+                <div class="table__title"><?php echo $product['price']?></div>
                 <div class="table__title">
                     <a class="icon-edit" href=""></a>
                     <div class="popap__window"> 

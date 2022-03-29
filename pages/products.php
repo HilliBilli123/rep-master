@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    /*if(!$_SESSION['user']){
+session_start();
+/*if(!$_SESSION['user']){
         header('Location: ../index.php');
     }*/
     include "../inc/connect.php";
@@ -25,21 +25,23 @@
 </head>
 
 <body>
-    <header class="header__main header_mainProduct">
+	<header class="header__main">
 		<div class="header__body _contein">
 			<ul class="header__body__menu">
 				<li class="menu__logo"><img src="../response/image/logo.png" alt="logo"></li>
-				<li class="menu__link"><a href="../index.html">Главная</a></li>
-				<li class="menu__link"><a href="products.php">Товары</a></li>
-				<li class="menu__link"><a href="">Услуги</a></li>
-				<li class="menu__link"><a href="">Корзина</a></li>
+				<li class="menu__link"><a href="../index.php">Главная</a></li>
+				<li class="menu__link"><a href="../pages/products.php">Товары</a></li>
+				<li class="menu__link"><a href="../pages/basket.php">Корзина</a></li>
 				<li class="menu__link"><a href="">Контакты</a></li>
-				<li>
+				<!-- <li>
 					<ul class="menu__lang">
-						<img src="../response/image/flagKz.png" alt="">
-						<img src="../response/image/flagRu.png" alt="">
+						<img src="response/image/flagKz.png" alt="">
+						<img src="response/image/flagRu.png" alt="">
 					</ul>
-				</li>
+				</li> -->
+				<li class="menu__link menu__auth"><a href="/pages/singin.php">
+						<img src="../response/image/userIcon.png" alt="">
+					</a></li>
 			</ul>
 		</div>
 	</header>
@@ -60,12 +62,11 @@
 			<h2 class="products__title _title"></h2>
 			<div class="products__items">
 				<?php
-				foreach($result as $product)
-					{
+				foreach ($result as $product) {
 				?>
 					<div class="products__item item__product">
 						<div class="item__product__image _ibg">
-							<img src="../<?php echo $product['pathImage']?>" alt="">
+							<img src="../<?php echo $product['pathImage'] ?>" alt="">
 						</div>
 						<div class="item__product__body">
 							<div class="item__product__content">
@@ -83,12 +84,12 @@
 						
 					</div>
 				<?php
-					}
+				}
 				?>
-			</div>	
-		</div>	
-    </section>
-    <footer class="footer">
+			</div>
+		</div>
+	</section>
+	<footer class="footer">
 		<div class="footer__cpntainer _contein">
 			<div class="footer__body">
 
@@ -116,4 +117,5 @@
 	<script src="js/swiper-bundle.min.js"></script>
 	<script src="js/script.js"></script>
 </body>
+
 </html>
