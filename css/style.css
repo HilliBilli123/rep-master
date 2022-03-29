@@ -285,3 +285,116 @@ body {
 	width: 250px;
 	height: 300px;
 }
+
+/* ==================== страница Товары ========================================= */
+
+.page__products {
+}
+.products {
+	padding-bottom: 40px;
+	padding-top: 100px;
+}
+.products-container {
+}
+
+.products__title {
+}
+._title {
+}
+.products__items {
+	display: flex;
+    max-width: 1280px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.item__product {
+	background-color: #182d4cd5;
+	width: 220px;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	margin: 10px;
+}
+
+.item__product__image {
+	/* position: absolute; */
+	text-align: center;
+	max-height: 200px;
+	
+}
+.item__product__image img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+	margin-top: 5px;
+	background-color: #fff;
+}
+
+.item__product__body {
+	flex-direction: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+}
+
+.item__product__content {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	padding: 0px 10px;
+	padding-bottom: 10px;
+}
+
+.item__product__content > *:not(:last-child) {
+	margin: 0px 0px 5px 0px;
+}
+
+.item__product__title {
+	font-weight: 400;
+	font-size: 1.3vw;	
+	line-height: 19px;
+	color: #fff;
+}
+.item__product__text {
+	font-weight: 400;
+	font-size: 0.8vw;
+	line-height: 16px;
+	color: #fff;
+}
+.item__product__price {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 21px;
+}
+.item__product__price_old {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 21px;
+	color: rgb(145, 143, 143);
+}
+.slider-contain__buttons {
+	display: inline-flex;
+	width: 100%;
+	padding: 10px;
+}
+.slider-contain__button {
+    background-color: #fff;
+    min-height: 30px;
+	width: 100%;
+    display: flex;
+	flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.2px;
+    align-items: center;
+    line-height: 150%;
+    color: #182D4C;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+
+.slider-contain__button:hover {
+	background-color: rgba(255, 255, 255, 0.158);
+	color: #fff;
+}
