@@ -8,6 +8,8 @@
 
 .footer {
     background-color: #182D4C;
+    position: static;
+    bottom: 0;
 }
 
 .footer__body {
@@ -27,12 +29,10 @@
     }
 } */
 
-.footer__contacts {
-}
+.footer__contacts {}
 
-.footer__socialMedia {
+.footer__socialMedia {}
 
-}
 /*Общи заголовки подвала*/
 ._footer-title {
     margin: 0px 0px 15px 0px;
@@ -44,14 +44,16 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
 .footer__socialMedia__list {
     display: flex;
     max-width: 400px;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
 /*Контакты*/
-.footer__contacts__list li:not(:last-child){
+.footer__contacts__list li:not(:last-child) {
     margin: 0px 0px 15px 0px;
 }
 
@@ -62,8 +64,9 @@
     line-height: 120%;
     width: 150px;
 }
+
 /*Социальные сети*/
-.footer__socialMedia__list li:not(:last-child){
+.footer__socialMedia__list li:not(:last-child) {
     margin: 0px 0px 15px 0px;
 }
 
@@ -78,7 +81,7 @@
 .footer__logo {
     max-width: 170px;
     background-color: #fff;
-	object-fit: cover;
+    object-fit: cover;
 }
 
 .footer__logo img {
