@@ -1,55 +1,66 @@
 @import url("clear.css");
 @import url("fonsFooter.css");
-input{
+
+input {
     display: inline-block;
 }
-label{
+
+label {
     display: inline-block;
 }
+
 ._contain {
     max-width: 1440px;
     margin: 0 auto;
 }
-body{
+
+body {
     overflow: hidden;
 }
 
 /* admin.php */
-input{
+input {
     display: inline-block;
 }
-.menu{
+
+.menu {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
-.left__menu{
+
+.left__menu {
     width: 50%;
     height: 100vh;
     display: flex;
     align-items: center;
 }
-.right__menu{
+
+.right__menu {
     width: 50%;
 }
-.right__menu__contein{
+
+.right__menu__contein {
     /* background-color: green; */
     background-color: #182D4C;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
-.left__menu__contein{
+
+.left__menu__contein {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     /* height: 100%; */
     justify-content: center;
 }
-.circle__internal{
-    width: 250px;
-    height: 250px;
-    border: 10px solid #182D4C;
+
+.circle__internal {
+    width: 12vw;
+    height: 12vw;
+    padding: 20px;
+    border: 0.7vw solid #182D4C;
     /* border: 10px solid green; */
     border-radius: 50%;
     display: flex;
@@ -63,13 +74,14 @@ input{
     text-align: center;
     position: relative;
     z-index: 2;
-    
+
 }
 
 .circle__text {
     position: relative;
     z-index: 3;
 }
+
 .cout {
     position: relative;
     z-index: 3;
@@ -81,7 +93,7 @@ input{
     width: 255px;
     height: 255px;
     /* border-radius: 50%; */
-    background-color: #fff ;
+    background-color: #fff;
     z-index: 1;
     animation: rotate 1s linear forwards;
     stroke-dasharray: 20px;
@@ -89,26 +101,30 @@ input{
     /* border-color: #fff transparent transparent transparent; */
     transition: 0.5s all;
 }
+
 /* Анимация */
 
 @keyframes rotate {
-    0%{
+    0% {
         width: 255px;
         transform: rotate(0deg);
     }
-    25%{
+
+    25% {
         width: 200px;
         transform: rotate(45deg);
     }
-    50%{
+
+    50% {
         width: 150px;
         transform: rotate(90deg);
     }
-    
-    100%{
+
+    100% {
         width: 0px;
         transform: rotate(90deg);
     }
+
     /* 100%{
         width: 0px;
         transform: rotate(360deg);
@@ -120,36 +136,57 @@ input{
 
 /* singin.php */
 
-.singin{
+.singin {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.singin__main{
-    width: 400px;
-    height: 400px;
+
+.singin__main {
+    /* width: 400px; */
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #182D4C;
+    color: white;
+    padding: 20px;
 }
 
-.singin__content{
+.singin__button a {
+    display: inline-block;
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.singin__content p {
+    text-align: center;
+}
+
+.singin__button button {
+    padding: 5px;
+}
+
+.singin__content {
     display: flex;
     flex-direction: column;
 }
-.singin__content input{
+
+.singin__content input {
     margin-bottom: 20px;
     width: 300px;
 }
+
 /* Right div */
-.logout{
+.logout {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
 }
-.logout__contein{
+
+.logout__contein {
     /* padding: 10px; */
     /* background-color: white; */
     /* margin: 10px; */
@@ -160,9 +197,10 @@ input{
     width: 100%;
     position: relative;
 
-   
+
 }
-.logout__login{
+
+.logout__login {
     padding: 10px;
     background-color: white;
     cursor: pointer;
@@ -181,7 +219,7 @@ input{
     width: 80%;
     height: 80%;
     object-fit: cover;
-    
+
 }
 
 
@@ -191,12 +229,14 @@ input{
     justify-content: space-between;
     padding: 20px;
 }
-.logout__menu{
+
+.logout__menu {
     background-color: #fff;
     text-align: center;
     padding: 10px;
     width: 150px;
 }
+
 /* .logout__contein:hover .logout__menu{
     visibility: visible;
     opacity: 1;
@@ -218,11 +258,11 @@ input{
 .info__info {
     color: #fff;
     font-size: 24px;
-    letter-spacing: 3px;     
+    letter-spacing: 3px;
 
 }
 
-.info__image img{
+.info__image img {
     max-width: 250px;
 }
 
@@ -250,6 +290,7 @@ input{
     font-size: 24px;
     color: #fff;
 }
+
 /* Right div end */
 /* singin.php end */
 
@@ -303,12 +344,13 @@ input{
 }
 
 
-.table{
+.table {
     height: 100vh;
     overflow: auto;
     flex: 1 0 auto;
     /* width: 100%; */
 }
+
 .table__contain {
     display: flex;
     flex-direction: column;
@@ -322,35 +364,41 @@ input{
     min-height: 70px;
     max-height: 100%;
 }
-.table__content:nth-child(2n){
+
+.table__content:nth-child(2n) {
     background-color: #eeeeee;
 }
-.table__content:nth-child(2n) .table__title{
+
+.table__content:nth-child(2n) .table__title {
     border-right: 3px solid white;
 }
-.table__content:nth-child(2n) .table__title__number{
+
+.table__content:nth-child(2n) .table__title__number {
     border-right: 3px solid white;
 }
-.table__header{
+
+.table__header {
     background-color: #182D4C;
     color: white;
     position: sticky;
     width: 100%;
     top: 0;
 }
+
 .table__title {
     flex: 1 1 auto;
     text-align: center;
-    width: 200px;
+    width: 10vw;
     padding: 5px 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     word-spacing: 2px;
-    word-break:break-all;
+    word-break: break-all;
     border-right: 3px solid #eeeeee;
 }
-.table__title__number{
+
+.table__title__number {
     width: 40px;
     padding: 5px;
     display: flex;
@@ -358,6 +406,7 @@ input{
     align-items: center;
     border-right: 2px solid #eee;
 }
+
 .button__add {
     display: flex;
     margin-bottom: 20px;
@@ -366,7 +415,7 @@ input{
     border-radius: 5px;
     width: 150px;
     height: 50px;
-    box-shadow:  0px 5px 5px 1px #182d4cad;
+    box-shadow: 0px 5px 5px 1px #182d4cad;
 }
 
 .buttons__add {
@@ -381,8 +430,9 @@ input{
 .flex__content {
     display: flex;
 }
+
 /* Popap menu */
-.popap__window{
+.popap__window {
     display: none;
     position: absolute;
     height: 100vh;
@@ -395,9 +445,10 @@ input{
     background-color: #182d4c7e;
     /* background-color: green; */
 }
-.popap__window__conten{
+
+.popap__window__conten {
     min-width: 500px;
-    
+
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -405,7 +456,8 @@ input{
     padding: 20px;
     position: relative;
 }
-.popap__out{
+
+.popap__out {
     position: absolute;
     right: 0;
     top: 0;
@@ -414,24 +466,26 @@ input{
     cursor: pointer;
 }
 
-.popap__text:nth-child(2n){
+.popap__text:nth-child(2n) {
     background-color: #eeeeee;
 }
-.popap__text{
+
+.popap__text {
     width: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
 
-.popap__text:not(:last-child){
+.popap__text:not(:last-child) {
     margin-bottom: 20px;
 }
 
-.popap__form{
+.popap__form {
     width: 100%;
 }
-.popap__all{
+
+.popap__all {
     height: 100%;
     display: flex;
     flex-direction: column;
