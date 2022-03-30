@@ -26,6 +26,9 @@
     $result6 = mysqli_query($connect,"SELECT count(*) FROM `zakaz`");
     $result6 = mysqli_fetch_assoc($result6);
     $count6 = $result6['count(*)'];
+    $result7 = mysqli_query($connect,"SELECT count(*) FROM `workType`");
+    $result7 = mysqli_fetch_assoc($result7);
+    $count7 = $result7['count(*)'];
     // print_r($count['count']);
 ?>
 
@@ -75,6 +78,10 @@
                 <a href="zakazMain.php" class="circle__internal">
                     <div class="circle__text">Заказ</div>
                     <div class="cout"><?php echo $count6?></div>
+                </a>
+                <a href="workTypeMain.php" class="circle__internal">
+                    <div class="circle__text">Вид работы</div>
+                    <div class="cout"><?php echo $count7?></div>
                 </a>
             </div>
         </div>

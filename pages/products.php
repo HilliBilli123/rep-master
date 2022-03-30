@@ -4,10 +4,14 @@ session_start();
         header('Location: ../index.php');
     }*/
     include "../inc/connect.php";
+	$id = $_GET['id'];
+	if($id > 0){
+		$result = mysqli_query($connect,"SELECT products.*, category.nameCategory, category.nameCategoryKz, category.price FROM `products` join category on category.id = products.type where `type` = '$id'");
+	}else{
+		$result = mysqli_query($connect,"SELECT products.*, category.nameCategory, category.nameCategoryKz, category.price FROM `products` join category on category.id = products.type");
+	}
     //$connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
-    $result = mysqli_query($connect,"SELECT products.*, category.nameCategory, category.nameCategoryKz, category.price FROM `products` join category on category.id = products.type");
 	$category = mysqli_query($connect, "SELECT * FROM `category`");
-	print_r(mysqli_fetch_assoc($category));
 
     //print_r($result);
     //ini_set('date.timezone', 'Asia/Almaty');
@@ -48,11 +52,12 @@ session_start();
     <section class="page__products products">
 		<div class="product__menu _contein">
 			<ul class="product__body__menu">
+				<li class="product__menu__link"><a href="../pages/products.php">Все</a></li>
 				<?php
 				foreach($category as $type)
 					{
 				?>
-					<li class="product__menu__link"><a href="../inc/productFilter.php?id=<?php echo $type['id'];?>"><?php echo $type['nameCategory']?></a></li>
+					<li class="product__menu__link"><a href="../pages/products.php?id=<?php echo $type['id'];?>"><?php echo $type['nameCategory']?></a></li>
 				<?php
 					}
 				?>	
