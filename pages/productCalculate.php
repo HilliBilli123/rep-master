@@ -10,7 +10,10 @@
     // printf($id)
     // $connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
     $result = mysqli_query($connect,"SELECT products.*, category.nameCategory, category.nameCategoryKz, category.price AS categoryPrice FROM `products` join category on category.id = products.type WHERE products.id = '$id'");
-    $otkos = mysqli_query($connect, "select * from otkos")
+    $otkos = mysqli_query($connect, "select * from otkos");
+    $product = mysqli_fetch_assoc($result);
+    $categoryId = $product['type'];
+    $workTypes = mysqli_query($connect, "select * from `workType` where categoryId = '$categoryId'");
     // print_r($result);
     //ini_set('date.timezone', 'Asia/Almaty');
 ?>
@@ -48,7 +51,7 @@
 	</header>
     <section class="main">
         <?php
-            $product = mysqli_fetch_assoc($result);
+            
         ?>
             <div class="product _contein">
                 <div class="product__harackter__content">
@@ -92,42 +95,70 @@
                                     }
                                 ?>
                             </div>
+                            <div>Дополнительно</div>
+                            <div class="product__additional">
+                                <?php 
+                                foreach($workTypes as $workType)
+                                {
+                                ?>
+                                    <label for=""><input type="checkbox" id = "<?php echo $workType['price']?>" name = "workType" value = "<?php echo $workType['id']?>"><?php echo $workType['name']?></label>
+                                <?php
+                                }
+                                ?>
+                            </div> 
                             <div class="calculate__parametr__title">Цена</div>
                             <div class="product__calculate__totalPrice">
                                 <input id = "price" type="text" name="price">
                                 <input type="text" id = "priceKvm" value = "<?php echo $product['categoryPrice']?>" style = "display:none">
+                                <input type="number" id = "priceOtkos" value = "" style = "display:none">
+                                <input type="number" id = "priceAdd" value = "" style = "display:none">
                             </div>
                             <script>
                                 function calcualte(){
                                     var x = parseFloat(document.getElementById("width").value)||0; 
                                     var y = parseFloat(document.getElementById("height").value)||0;
                                     var kvm = parseFloat(document.getElementById("priceKvm").value)||0;
-                                    document.getElementById("price").value = (x * 0.001 + y * 0.001) * kvm;
+                                    var priceAdd = parseFloat(document.getElementById("priceAdd").value)||0;
+                                    var priceOtkos = parseFloat(document.getElementById("priceOtkos").value)||0;
+                                    var total = (x * 0.001 + y * 0.001) * kvm;
+                                    document.getElementById("price").value = total + priceOtkos + priceAdd;
                                 }
                                 function onclick(e){
                                         language = parseFloat(e.target.id)||0;
+                                        document.getElementById("priceOtkos").value = language;
                                         var x = parseFloat(document.getElementById("width").value)||0; 
                                         var y = parseFloat(document.getElementById("height").value)||0;
                                         var kvm = parseFloat(document.getElementById("priceKvm").value)||0;
+                                        var priceAdd = parseFloat(document.getElementById("priceAdd").value)||0;
                                         var total = (x * 0.001 + y * 0.001) * kvm;
-                                        document.getElementById("price").value = total + language;
+                                        document.getElementById("price").value = total + language + priceAdd;
+                                        
                                     }
                                     for (var i = 0; i < myForm.otkosId.length; i++) {
                                         myForm.otkosId[i].addEventListener("click", onclick);
+                                    }
+
+                                    function addCalc(d){
+                                        check = d.target.checked;
+                                        language = parseFloat(d.target.id)||0;
+                                        var priceAdd = parseFloat(document.getElementById("priceAdd").value)||0;
+                                        var total = parseFloat(document.getElementById("price").value)||0;                                        
+                                        if(check){
+                                            document.getElementById("price").value = total + language;
+                                            document.getElementById("priceAdd").value = priceAdd + language;
+                                        }else{
+                                            document.getElementById("price").value = total - language;
+                                            document.getElementById("priceAdd").value = priceAdd - language;
+                                        }
+                                    }
+                                    for (var i = 0; i < myForm.workType.length; i++) {
+                                        myForm.workType[i].addEventListener("click", addCalc);
                                     }
                             </script>
                             <button type="submit">Добавить в корзину</button>
                         </form>
                     </div>
-                    <div class="product__additional">
-                        <form action="">
-                            <label for=""><input type="checkbox" >подоконник</label>
-                            <label for=""><input type="checkbox" >подоконник</label>
-                            <label for=""><input type="checkbox" >подоконник</label>
-                            <label for=""><input type="checkbox" >подоконник</label>
-                            <label for=""><input type="checkbox" >подоконник</label>
-                        </form>
-                    </div>  
+ 
                 </div>
                   
             </div>
