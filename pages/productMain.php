@@ -139,13 +139,17 @@
                                 </div>
                                 <div class="popap__text">
                                     <label for="" class="popap__lable" >Тип</label>
-                                    <select name="nameCategory" class="popap__lable">
-                                        <?php 
+                                    <select name="nameCategory" class="popap__lable" value = "<?php echo $product['nameCategory']?>">
+                                    <option value="<?php echo $product['type']?>"><?php echo $product['nameCategory']?></option>
+                                        <?php
+                                            $selected = $product['type'];
                                             foreach($category as $type)
                                             {
+                                                if($selected != $type['id']){
                                                 ?>
-                                                    <option value="<?php echo $type['id']?>"><?php echo $product['nameCategory']?></option>                                            
+                                                    <option value="<?php echo $type['id']?>"><?php echo $type['nameCategory']?></option>                                            
                                                 <?php
+                                                }
                                             }
                                         ?>
                                     </select>
@@ -154,7 +158,7 @@
                                 <input type="file" name="file" id="" accept="image/jpeg,image/png">
                                 <input type="text" name="id" style="display: none;" value="<?php echo $product['id']?>">
                                 <br>
-                                <button type="submit">Сохронить</button>
+                                <button type="submit">Сохранить</button>
                             </div>
                         </form>
                         </div>
