@@ -26,13 +26,11 @@ $result = mysqli_query($connect, "SELECT * FROM `city`");
     <title>City Panel</title>
 </head>
 
-<body>
-
-
-    <!-- <form action="" method = "post" enctype = "multipart/form-data"> -->
+<body class="body">
+    <!-- <form action="" method="post" enctype="multipart/form-data"> -->
 
     <!-- </form> -->
-    <div class="manufactures">
+    <div class="main">
         <div class="menu__admin__pages">
             <div class="menu__admin__pages__contain">
                 <div class="menu__admin__pages__logo">

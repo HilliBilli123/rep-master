@@ -6,6 +6,7 @@ session_start();
 include "../inc/connect.php";
 //$connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
 $result = mysqli_query($connect, "SELECT user.*, city.name AS cityName, city.nameKz AS cityNameKz FROM `user` join city on user.city = city.id");
+$citys = mysqli_query($connect, "SELECT * FROM `city`")
 //print_r($result);
 //ini_set('date.timezone', 'Asia/Almaty');
 ?>
@@ -26,7 +27,7 @@ $result = mysqli_query($connect, "SELECT user.*, city.name AS cityName, city.nam
     <title>User Panel</title>
 </head>
 
-<body>
+<body class="body">
     <!-- <a href="admin.php">На главную</a> -->
     <!-- <form action="" method = "post" enctype = "multipart/form-data"> -->
 
@@ -60,16 +61,48 @@ $result = mysqli_query($connect, "SELECT user.*, city.name AS cityName, city.nam
                             <div class="popap__out">X</div>
                             <div class="popap__all">
                                 <div class="popap__text">
-                                    <label for="" class="popap__lable">Описание на русском</label>
-                                    <input name="text" type="text" class="popap__lable">
+                                    <label for="" class="popap__lable">Логин</label>
+                                    <input name="login" type="text" class="popap__lable">
                                 </div>
                                 <div class="popap__text">
-                                    <label for="" class="popap__lable">Описание на казахском</label>
-                                    <input type="text" name="textKz" class="popap__lable">
+                                    <label for="" class="popap__lable">Пароль</label>
+                                    <input type="text" name="password" class="popap__lable">
                                 </div>
-                                <input type="file" name="file" id="" accept="image/jpeg,image/png">
-                                <br>
-                                <button type="submit">Сохронить</button>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Город</label>
+                                    <select name="cityName">
+                                        <option>Выберите город</option>
+                                        <?php
+                                        foreach ($citys as $city) {
+                                        ?>
+                                            <option value="<?php echo $city['id'] ?>"><?php echo $city['name'] ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Фамилия</label>
+                                    <input type="text" name="firstName" class="popap__lable">
+                                </div>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Имя</label>
+                                    <input type="text" name="name" class="popap__lable">
+                                </div>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Отчество</label>
+                                    <input type="text" name="lastName" class="popap__lable">
+                                </div>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Email</label>
+                                    <input type="text" name="email" class="popap__lable">
+                                </div>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Номер тел.</label>
+                                    <input type="text" name="phone" class="popap__lable">
+                                </div>
+                                <input type="text" style="display: none;" name="firstVhod" value="0">
+                                <button type="submit">Сохранить</button>
                             </div>
                         </form>
                     </div>
@@ -78,14 +111,14 @@ $result = mysqli_query($connect, "SELECT user.*, city.name AS cityName, city.nam
             <div class="table__contain">
                 <div class="table__content flex__content table__header">
                     <div class="table__title__number">№</div>
-                    <div class="table__title">login</div>
-                    <div class="table__title">password</div>
-                    <div class="table__title">city</div>
-                    <div class="table__title">lastName</div>
+                    <div class="table__title">Логин</div>
+                    <div class="table__title">Пароль</div>
+                    <div class="table__title">Город</div>
+                    <div class="table__title">ФИО</div>
                     <!-- <div class="table__title">firstName</div>
                     <div class="table__title">middleName</div> -->
                     <div class="table__title">email</div>
-                    <div class="table__title">phone</div>
+                    <div class="table__title">Номер тел.</div>
                     <div class="table__title">редактировать</div>
                     <div class="table__title">удалить</div>
                 </div>
@@ -99,9 +132,11 @@ $result = mysqli_query($connect, "SELECT user.*, city.name AS cityName, city.nam
                         <div class="table__title"><?php echo $product['login'] ?></div>
                         <div class="table__title"><?php echo $product['password'] ?></div>
                         <div class="table__title"><?php echo $product['cityName'] ?></div>
-                        <div class="table__title"><?php echo $product['lastName'], " ", $product['firstName'], " ", $product['middleName'] ?></div>
-                        <!-- <div class="table__title"><?php echo $product['firstName'] ?></div>
-                    <div class="table__title"><?php echo $product['middleName'] ?></div> -->
+                        <div class="table__title">
+                            <?php echo $product['lastName'] ?><br>
+                            <?php echo $product['firstName'] ?><br>
+                            <?php echo $product['middleName'] ?>
+                        </div>
                         <div class="table__title"><?php echo $product['email'] ?></div>
                         <div class="table__title"><?php echo $product['phone'] ?></div>
                         <div class="table__title">
@@ -113,16 +148,47 @@ $result = mysqli_query($connect, "SELECT user.*, city.name AS cityName, city.nam
                                         <div class="popap__out">X</div>
                                         <div class="popap__all">
                                             <div class="popap__text">
-                                                <label for="" class="popap__lable">Описание на русском</label>
-                                                <input name="text" type="text" class="popap__lable" value="<?php echo $product['text'] ?>">
+                                                <label for="" class="popap__lable">Логин</label>
+                                                <input name="login" type="text" class="popap__lable" value="<?php echo $product['login'] ?>">
                                             </div>
                                             <div class="popap__text">
-                                                <label for="" class="popap__lable">Описание на казахском</label>
-                                                <input type="text" name="textKz" class="popap__lable" value="<?php echo $product['textKz'] ?>">
+                                                <label for="" class="popap__lable">Пароль</label>
+                                                <input type="text" name="password" class="popap__lable" value="<?php echo $product['password'] ?>">
                                             </div>
-                                            <input type="file" name="file" id="" accept="image/jpeg,image/png">
-                                            <input type="text" name="id" style="display: none;" value="<?php echo $product['id'] ?>">
-                                            <br>
+                                            <div class="popap__text">
+                                                <label for="" class="popap__lable">Город</label>
+                                                <select name="cityName">
+                                                    <?php
+                                                    foreach ($citys as $city) {
+                                                    ?>
+                                                        <option value="<?php echo $city['id'] ?>"><?php echo $city['name'] ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="popap__text">
+                                                <label for="" class="popap__lable">Фамилия</label>
+                                                <input type="text" name="lastName" class="popap__lable" value="<?php echo $product['lastName'] ?>">
+                                            </div>
+                                            <div class="popap__text">
+                                                <label for="" class="popap__lable">Имя</label>
+                                                <input type="text" name="firstName" class="popap__lable" value="<?php echo $product['firstName'] ?>">
+                                            </div>
+                                            <div class="popap__text">
+                                                <label for="" class="popap__lable">Отчество</label>
+                                                <input type="text" name="middleName" class="popap__lable" value="<?php echo $product['middleName'] ?>">
+                                            </div>
+                                            <div class="popap__text">
+                                                <label for="" class="popap__lable">Email</label>
+                                                <input type="text" name="email" class="popap__lable" value="<?php echo $product['email'] ?>">
+                                            </div>
+                                            <div class="popap__text">
+                                                <label for="" class="popap__lable">Номер тел.</label>
+                                                <input type="text" name="phone" class="popap__lable" value="<?php echo $product['phone'] ?>">
+                                            </div>
+                                            <input type="text" style="display: none;" name="id" value="<?php echo $product['id'] ?>">
+                                            <!-- <input type="text" style="display: none;" name="firstVhod" value="0"> -->
                                             <button type="submit">Сохронить</button>
                                         </div>
                                     </form>

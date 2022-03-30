@@ -90,8 +90,8 @@ input {
 .circle__internal::before {
     content: "";
     position: absolute;
-    width: 255px;
-    height: 255px;
+    width: 12vw;
+    height: 12vw;
     /* border-radius: 50%; */
     background-color: #fff;
     z-index: 1;
@@ -296,7 +296,7 @@ input {
 
 
 /* Таблица произволителей */
-.manufactures {
+.main {
     display: flex;
 }
 
@@ -448,13 +448,13 @@ input {
 
 .popap__window__conten {
     min-width: 500px;
-
     background-color: #fff;
     display: flex;
     justify-content: center;
     /* align-items: center; */
     padding: 20px;
     position: relative;
+    z-index: 20;
 }
 
 .popap__out {
@@ -466,8 +466,11 @@ input {
     cursor: pointer;
 }
 
-.popap__text:nth-child(2n) {
+/* .popap__text:nth-child(2n) {
     background-color: #eeeeee;
+} */
+.popap__title {
+    text-align: center;
 }
 
 .popap__text {
@@ -475,6 +478,7 @@ input {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    text-align: center;
 }
 
 .popap__text:not(:last-child) {

@@ -11,8 +11,7 @@
     $otkosId = $_POST['otkosId'];
     //include "../inc/connect.php";
     //$connect = mysqli_connect('localhost', 'root' , '' , 'bibala');
-    mysqli_query($connect, "INSERT INTO `zakazprocedure`(`categoryId`, `otkosId`, `height`, `width`, `productId`, `price`) VALUES ('0','$otkosId','$height','$width','$id', '$price')");
+    mysqli_query($connect, "INSERT INTO `zakazprocedure`(`categoryId`, `otkosId`, `height`, `width`, `productId`, `price`, `dop`) VALUES ('0','$otkosId','$height','$width','$id', '$price')");
     
     //ini_set('date.timezone', 'Asia/Almaty');
     header('Location: ../pages/products.php');
-?>

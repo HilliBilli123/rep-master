@@ -26,7 +26,7 @@ $result = mysqli_query($connect, "SELECT * FROM `category`");
     <title>Category Panel</title>
 </head>
 
-<body>
+<body class="body">
     <!-- <a href="admin.php">На главную</a> -->
     <!-- <form action="" method = "post" enctype = "multipart/form-data"> -->
 
@@ -61,14 +61,24 @@ $result = mysqli_query($connect, "SELECT * FROM `category`");
                             <div class="popap__all">
                                 <div class="popap__text">
                                     <label for="" class="popap__lable">Описание на русском</label>
-                                    <input name="text" type="text" class="popap__lable">
+                                    <input name="nameRu" type="text" class="popap__lable">
                                 </div>
                                 <div class="popap__text">
                                     <label for="" class="popap__lable">Описание на казахском</label>
-                                    <input type="text" name="textKz" class="popap__lable">
+                                    <input type="text" name="nameKz" class="popap__lable">
                                 </div>
-                                <input type="file" name="file" id="" accept="image/jpeg,image/png">
-                                <br>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Код</label>
+                                    <input type="text" name="code" class="popap__lable">
+                                </div>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Описание</label>
+                                    <input type="text" name="description" class="popap__lable">
+                                </div>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Цена</label>
+                                    <input type="text" name="price" class="popap__lable">
+                                </div>
                                 <button type="submit">Сохронить</button>
                             </div>
                         </form>
@@ -78,12 +88,13 @@ $result = mysqli_query($connect, "SELECT * FROM `category`");
             <div class="table__contain">
                 <div class="table__content flex__content table__header">
                     <div class="table__title__number">№</div>
-                    <div class="table__title">code</div>
-                    <div class="table__title">name</div>
-                    <div class="table__title">nameKz</div>
-                    <div class="table__title">price</div>
-                    <div class="table__title">редактировать</div>
-                    <div class="table__title">удалить</div>
+                    <div class="table__title">Наименование</div>
+                    <div class="table__title">Наименование каз</div>
+                    <div class="table__title">Код</div>
+                    <div class="table__title">Описание</div>
+                    <div class="table__title">Цена</div>
+                    <div class="table__title">Редактировать</div>
+                    <div class="table__title">Удалить</div>
                 </div>
                 <?php
                 $count = 0;
@@ -92,9 +103,10 @@ $result = mysqli_query($connect, "SELECT * FROM `category`");
                 ?>
                     <div class="table__content flex__content">
                         <div class="table__title__number"><?php echo $count ?></div>
-                        <div class="table__title"><?php echo $product['code'] ?></div>
                         <div class="table__title"><?php echo $product['nameCategory'] ?></div>
                         <div class="table__title"><?php echo $product['nameCategoryKz'] ?></div>
+                        <div class="table__title"><?php echo $product['code'] ?></div>
+                        <div class="table__title"><?php echo $product['opisanie'] ?></div>
                         <div class="table__title"><?php echo $product['price'] ?></div>
                         <div class="table__title">
                             <a class="icon-edit" href=""></a>
@@ -106,15 +118,25 @@ $result = mysqli_query($connect, "SELECT * FROM `category`");
                                         <div class="popap__all">
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Описание на русском</label>
-                                                <input name="text" type="text" class="popap__lable" value="<?php echo $product['text'] ?>">
+                                                <input name="text" type="text" class="popap__lable" value="<?php echo $product['nameCategory'] ?>">
                                             </div>
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Описание на казахском</label>
-                                                <input type="text" name="textKz" class="popap__lable" value="<?php echo $product['textKz'] ?>">
+                                                <input type="text" name="textKz" class="popap__lable" value="<?php echo $product['nameCategoryKz'] ?>">
                                             </div>
-                                            <input type="file" name="file" id="" accept="image/jpeg,image/png">
+                                            <div class="popap__text">
+                                                <label for="" class="popap__lable">Код</label>
+                                                <input type="text" name="textKz" class="popap__lable" value="<?php echo $product['code'] ?>">
+                                            </div>
+                                            <div class="popap__text">
+                                                <label for="" class="popap__lable">Описание</label>
+                                                <input type="text" name="description" class="popap__lable" value="<?php echo $product['opisanie'] ?>">
+                                            </div>
+                                            <div class="popap__text">
+                                                <label for="" class="popap__lable">Цена</label>
+                                                <input type="text" name="textKz" class="popap__lable" value="<?php echo $product['price'] ?>">
+                                            </div>
                                             <input type="text" name="id" style="display: none;" value="<?php echo $product['id'] ?>">
-                                            <br>
                                             <button type="submit">Сохронить</button>
                                         </div>
                                     </form>

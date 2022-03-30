@@ -9,13 +9,14 @@
     $lastName = $_POST['lastName'];
     $firstName = $_POST['firstName'];
     $middleName = $_POST['middleName'];
+    $firstVhod = $_POST['firstVhod'];
+    $city = $_POST['cityName'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     //include "../inc/connect.php";
     //$connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
-    $sql = "INSERT INTO `user`(`login`, `password`, `firstVhod`, `city`, `lastName`, `firstName`, `middleName`, `email`, `phone`) VALUES ('$login','$password','1','1','$lastName','$firstName','$lastName','$email','$phone')";
+    $sql = "INSERT INTO `user`(`login`, `password`, `firstVhod`, `city`, `lastName`, `firstName`, `middleName`, `email`, `phone`) VALUES ('$login','$password','$firstVhod','$city','$lastName','$firstName','$lastName','$email','$phone')";
     mysqli_query($connect, $sql);
     
     //ini_set('date.timezone', 'Asia/Almaty');
     header('Location: ../pages/userMain.php');
-?>

@@ -3,18 +3,18 @@ session_start();
 /*if(!$_SESSION['user']){
         header('Location: ../index.php');
     }*/
-    include "../inc/connect.php";
-	$id = $_GET['id'];
-	if($id > 0){
-		$result = mysqli_query($connect,"SELECT products.*, category.nameCategory, category.nameCategoryKz, category.price FROM `products` join category on category.id = products.type where `type` = '$id'");
-	}else{
-		$result = mysqli_query($connect,"SELECT products.*, category.nameCategory, category.nameCategoryKz, category.price FROM `products` join category on category.id = products.type");
-	}
-    //$connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
-	$category = mysqli_query($connect, "SELECT * FROM `category`");
+include "../inc/connect.php";
+$id = $_GET['id'];
+if ($id > 0) {
+	$result = mysqli_query($connect, "SELECT products.*, category.nameCategory, category.nameCategoryKz, category.price FROM `products` join category on category.id = products.type where `type` = '$id'");
+} else {
+	$result = mysqli_query($connect, "SELECT products.*, category.nameCategory, category.nameCategoryKz, category.price FROM `products` join category on category.id = products.type");
+}
+//$connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
+$category = mysqli_query($connect, "SELECT * FROM `category`");
 
-    //print_r($result);
-    //ini_set('date.timezone', 'Asia/Almaty');
+//print_r($result);
+//ini_set('date.timezone', 'Asia/Almaty');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +28,7 @@ session_start();
 	<title>Товары</title>
 </head>
 
-<body>
+<body class="body">
 	<header class="header__main">
 		<div class="header__body _contein">
 			<ul class="header__body__menu">
@@ -49,21 +49,20 @@ session_start();
 			</ul>
 		</div>
 	</header>
-    <section class="page__products products">
+	<section class="page__products products">
 		<div class="product__menu _contein">
 			<ul class="product__body__menu">
 				<li class="product__menu__link"><a href="../pages/products.php">Все</a></li>
 				<?php
-				foreach($category as $type)
-					{
+				foreach ($category as $type) {
 				?>
-					<li class="product__menu__link"><a href="../pages/products.php?id=<?php echo $type['id'];?>"><?php echo $type['nameCategory']?></a></li>
+					<li class="product__menu__link"><a href="../pages/products.php?id=<?php echo $type['id']; ?>"><?php echo $type['nameCategory'] ?></a></li>
 				<?php
-					}
-				?>	
-			</ul>		
+				}
+				?>
+			</ul>
 		</div>
-        <div class="products-container _contein">
+		<div class="products-container _contein">
 			<h2 class="products__title _title"></h2>
 			<div class="products__items">
 				<?php
@@ -76,17 +75,17 @@ session_start();
 						<div class="item__product__body">
 							<div class="item__product__content">
 								<div class="item__product__title">
-									<p><?php echo $product['name']?></p>
+									<p><?php echo $product['name'] ?></p>
 								</div>
 								<div class="item__product__text">
-									<?php echo $product['nameCategory']?>
+									<?php echo $product['nameCategory'] ?>
 								</div>
 								<div class="item__product__buttons">
 									<a href="productCalculate.php?id=<?php echo $product['id']; ?>" class="item__product__button">Подробнее</a>
 								</div>
-							</div>		
+							</div>
 						</div>
-						
+
 					</div>
 				<?php
 				}

@@ -23,16 +23,14 @@ $result = mysqli_query($connect, "SELECT * FROM `manufactures`");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
-    <title>Manufactures Panel</title>
+    <title>main Panel</title>
 </head>
 
-<body>
-
-
-    <!-- <form action="" method = "post" enctype = "multipart/form-data"> -->
+<body class="body">
+    <!-- <form action="" method="post" enctype="multipart/form-data"> -->
 
     <!-- </form> -->
-    <div class="manufactures">
+    <div class="main">
         <div class="menu__admin__pages">
             <div class="menu__admin__pages__contain">
                 <div class="menu__admin__pages__logo">
@@ -55,7 +53,7 @@ $result = mysqli_query($connect, "SELECT * FROM `manufactures`");
                 <a href="" class="button__add">Добавить</a>
                 <div class="popap__window">
                     <div class="popap__window__conten">
-                        <form action="../inc/manufacturesAdd.php" enctype="multipart/form-data" method="post" class="popap__form">
+                        <form action="../inc/mainAdd.php" enctype="multipart/form-data" method="post" class="popap__form">
                             <div class="popap__title">Редактирование</div>
                             <div class="popap__out">X</div>
                             <div class="popap__all">
@@ -98,7 +96,7 @@ $result = mysqli_query($connect, "SELECT * FROM `manufactures`");
                             <a class="icon-edit" href=""></a>
                             <div class="popap__window">
                                 <div class="popap__window__conten">
-                                    <form action="../inc/manufacturesEdit.php" enctype="multipart/form-data" method="post" class="popap__form">
+                                    <form action="../inc/mainEdit.php" enctype="multipart/form-data" method="post" class="popap__form">
                                         <div class="popap__title">Редактирование</div>
                                         <div class="popap__out">X</div>
                                         <div class="popap__all">
@@ -120,8 +118,8 @@ $result = mysqli_query($connect, "SELECT * FROM `manufactures`");
                             </div>
                         </div>
                         <div class="table__title">
-                            <form action="../inc/manufacturesDelete.php">
-                                <a class="icon-bin" href="../inc/manufacturesDelete.php?id=<?php echo $product['id']; ?>"></a>
+                            <form action="../inc/mainDelete.php">
+                                <a class="icon-bin" href="../inc/mainDelete.php?id=<?php echo $product['id']; ?>"></a>
                             </form>
                         </div>
                     </div>

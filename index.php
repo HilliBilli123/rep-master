@@ -17,7 +17,7 @@
 	<title>Document</title>
 </head>
 
-<body>
+<body >
 	<header class="header__main">
 		<div class="header__body _contein">
 			<ul class="header__body__menu">

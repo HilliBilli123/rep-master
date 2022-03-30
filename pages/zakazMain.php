@@ -26,13 +26,11 @@ $result = mysqli_query($connect, "SELECT zakaz.*, products.name, products.type, 
     <title>City Panel</title>
 </head>
 
-<body>
-
-
-    <!-- <form action="" method = "post" enctype = "multipart/form-data"> -->
+<body class="body">
+    <!-- <form action="" method="post" enctype="multipart/form-data"> -->
 
     <!-- </form> -->
-    <div class="manufactures">
+    <div class="main">
         <div class="menu__admin__pages">
             <div class="menu__admin__pages__contain">
                 <div class="menu__admin__pages__logo">
@@ -56,6 +54,7 @@ $result = mysqli_query($connect, "SELECT zakaz.*, products.name, products.type, 
                     <div class="table__title__number">№</div>
                     <div class="table__title">Наименование</div>
                     <div class="table__title">Категория товара</div>
+                    <div class="table__title">Доп. работы</div>
                     <div class="table__title">Цена</div>
                     <div class="table__title">Просмотр</div>
                 </div>
@@ -68,6 +67,7 @@ $result = mysqli_query($connect, "SELECT zakaz.*, products.name, products.type, 
                         <div class="table__title__number"><?php echo $count ?></div>
                         <div class="table__title"><?php echo $product['name'] ?></div>
                         <div class="table__title"><?php echo $product['nameCategory'] ?></div>
+                        <div class="table__title"><?php echo $product['dop'] ?></div>
                         <div class="table__title"><?php echo $product['price'] ?></div>
                         <div class="table__title">
                             <a class="" href="../pages/zakaz.php?id=<?php echo $product['id']; ?>">Посмотреть</a>

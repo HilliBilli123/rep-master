@@ -14,7 +14,7 @@ session_start();
     <link rel="stylesheet" href="../css/admin.css">
 </head>
 
-<body>
+<body class="body">
     <div class="singin">
         <div class="singin__contein">
             <div class="singin__main">

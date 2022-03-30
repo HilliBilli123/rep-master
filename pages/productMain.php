@@ -27,7 +27,7 @@ $category = mysqli_query($connect, "SELECT * FROM category");
     <title>Products Panel</title>
 </head>
 
-<body>
+<body class="body">
     <!-- <a href="admin.php">На главную</a> -->
     <!-- <form action="" method = "post" enctype = "multipart/form-data"> -->
 
@@ -67,6 +67,10 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                                     <input name="name" type="text" class="popap__lable">
                                 </div>
                                 <div class="popap__text">
+                                    <label for="" class="popap__lable">Название каз</label>
+                                    <input name="nameKz" type="text" class="popap__lable">
+                                </div>
+                                <div class="popap__text">
                                     <label for="" class="popap__lable">Цена</label>
                                     <input type="text" name="price" class="popap__lable">
                                 </div>
@@ -88,6 +92,10 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                                     <label for="" class="popap__lable">Характиристика</label>
                                     <input type="text" name="harackter" class="popap__lable">
                                 </div>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Характиристика каз</label>
+                                    <input type="text" name="harackterKz" class="popap__lable">
+                                </div>
                                 <input type="file" name="file" id="" accept="image/jpeg,image/png">
                                 <br>
                                 <button type="submit">Сохронить</button>
@@ -99,13 +107,13 @@ $category = mysqli_query($connect, "SELECT * FROM category");
             <div class="table__contain">
                 <div class="table__content flex__content table__header">
                     <div class="table__title__number">ID</div>
-                    <div class="table__title">name</div>
-                    <div class="table__title">imagePath</div>
-                    <div class="table__title">price</div>
-                    <div class="table__title">type</div>
-                    <div class="table__title">harackter</div>
-                    <div class="table__title">редактировать</div>
-                    <div class="table__title">удалить</div>
+                    <div class="table__title">Название каз/рус</div>
+                    <div class="table__title">Изображение</div>
+                    <div class="table__title">Тип</div>
+                    <div class="table__title">Характиристика каз/рус</div>
+                    <div class="table__title">Цена</div>
+                    <div class="table__title">Редактировать</div>
+                    <div class="table__title">Удалить</div>
                 </div>
                 <?php
                 $count = 0;
@@ -114,12 +122,11 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                 ?>
                     <div class="table__content flex__content">
                         <div class="table__title__number"><?php echo $count ?></div>
-                        <div class="table__title"><?php echo $product['name'] ?></div>
-                        <div class="table__title"><?php echo $product['pathImage'] ?>
-                        </div>
-                        <div class="table__title"><?php echo $product['price'] ?></div>
+                        <div class="table__title"><?php echo $product['name'] ?><br><?php echo $product['nameKz'] ?></div>
+                        <div class="table__title"><?php echo $product['pathImage'] ?></div>
                         <div class="table__title"><?php echo $product['nameCategory'] ?></div>
-                        <div class="table__title"><?php echo $product['harackter'] ?></div>
+                        <div class="table__title"><?php echo $product['harackter'] ?><br><?php echo $product['harakterKz'] ?></div>
+                        <div class="table__title"><?php echo $product['price'] ?></div>
                         <div class="table__title">
                             <a class="icon-edit" href=""></a>
                             <div class="popap__window">
@@ -133,12 +140,20 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                                                 <input name="name" type="text" class="popap__lable" value="<?php echo $product['name'] ?>">
                                             </div>
                                             <div class="popap__text">
+                                                <label for="" class="popap__lable">Название каз</label>
+                                                <input name="nameKz" type="text" class="popap__lable" value="<?php echo $product['nameKz'] ?>">
+                                            </div>
+                                            <div class="popap__text">
                                                 <label for="" class="popap__lable">Цена</label>
                                                 <input type="text" name="price" class="popap__lable" value="<?php echo $product['price'] ?>">
                                             </div>
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Характиристика</label>
                                                 <input type="text" name="harackter" class="popap__lable" value="<?php echo $product['harackter'] ?>">
+                                            </div>
+                                            <div class="popap__text">
+                                                <label for="" class="popap__lable">Характиристика каз</label>
+                                                <input type="text" name="harackterKz" class="popap__lable" value="<?php echo $product['harakterKz'] ?>">
                                             </div>
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Тип</label>
@@ -160,35 +175,6 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                                         </div>
                                     </form>
                                 </div>
-                                <div class="popap__text">
-                                    <label for="" class="popap__lable">Цена</label>
-                                    <input type="text" name="price" class="popap__lable" value="<?php echo $product['price'] ?>">
-                                </div>
-                                <div class="popap__text">
-                                    <label for="" class="popap__lable">Характиристика</label>
-                                    <input type="text" name="harackter" class="popap__lable" value="<?php echo $product['harackter'] ?>">
-                                </div>
-                                <div class="popap__text">
-                                    <label for="" class="popap__lable">Тип</label>
-                                    <select name="nameCategory" class="popap__lable" value="<?php echo $product['nameCategory'] ?>">
-                                        <option value="<?php echo $product['type'] ?>"><?php echo $product['nameCategory'] ?></option>
-                                        <?php
-                                        $selected = $product['type'];
-                                        foreach ($category as $type) {
-                                            if ($selected != $type['id']) {
-                                        ?>
-                                                <option value="<?php echo $type['id'] ?>"><?php echo $type['nameCategory'] ?></option>
-                                        <?php
-                                            }
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-
-                                <input type="file" name="file" id="" accept="image/jpeg,image/png">
-                                <input type="text" name="id" style="display: none;" value="<?php echo $product['id'] ?>">
-                                <br>
-                                <button type="submit">Сохранить</button>
                             </div>
                         </div>
                         <div class="table__title">
