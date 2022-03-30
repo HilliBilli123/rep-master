@@ -1,20 +1,11 @@
 <?php
 session_start();
-/*if(!$_SESSION['user']){
-        header('Location: ../index.php');
-    }*/
+
 include "../inc/connect.php";
-//$connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
 $result = mysqli_query($connect, "SELECT products.*, category.nameCategory, category.nameCategoryKz FROM `products` join category on category.id = products.type");
 $category = mysqli_query($connect, "SELECT * FROM category");
-//print_r($result);
-//ini_set('date.timezone', 'Asia/Almaty');
+
 ?>
-<!-- <pre>
-    <?php
-    print_r(mysqli_fetch_assoc($result));
-    ?>
-</pre> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,10 +19,6 @@ $category = mysqli_query($connect, "SELECT * FROM category");
 </head>
 
 <body class="body">
-    <!-- <a href="admin.php">На главную</a> -->
-    <!-- <form action="" method = "post" enctype = "multipart/form-data"> -->
-
-    <!-- </form> -->
     <div class="product flex__content">
         <div class="menu__admin__pages">
             <div class="menu__admin__pages__contain">
@@ -51,7 +38,6 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                 </div>
             </div>
         </div>
-        <!-- <a href="productAdd.php">Добавить</a> -->
         <div class="table">
             <div class="buttons__add">
                 <a href="" class="button__add">Добавить</a>
@@ -125,6 +111,7 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                         <div class="table__title"><?php echo $product['pathImage'] ?></div>
                         <div class="table__title"><?php echo $product['nameCategory'] ?></div>
                         <div class="table__title"><?php echo $product['harackter'] ?><br><?php echo $product['harakterKz'] ?></div>
+
                         <div class="table__title"><?php echo $product['price'] ?></div>
                         <div class="table__title">
                             <a class="icon-edit" href=""></a>
@@ -157,16 +144,18 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Тип</label>
                                                 <select name="nameCategory" class="popap__lable">
+                                                    <option value="<?php echo $product['type'] ?>"><?php echo $product['nameCategory'] ?></option>
                                                     <?php
                                                     foreach ($category as $type) {
+                                                        if ($type['id'] != $product['type']) {
                                                     ?>
-                                                        <option value="<?php echo $type['id'] ?>"><?php echo $product['nameCategory'] ?></option>
+                                                            <option value="<?php echo $type['id'] ?>"><?php echo $type['nameCategory'] ?></option>
                                                     <?php
+                                                        }
                                                     }
                                                     ?>
                                                 </select>
                                             </div>
-
                                             <input type="file" name="file" id="" accept="image/jpeg,image/png">
                                             <input type="text" name="id" style="display: none;" value="<?php echo $product['id'] ?>">
                                             <br>
@@ -190,9 +179,12 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                 unset($_SESSION['message']);
                 ?>
             </div>
-            <script src="../js/popap.js"></script>
+
         </div>
+
     </div>
+
+    <script src="../js/popap.js"></script>
 </body>
 
 </html>

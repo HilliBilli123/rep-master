@@ -159,11 +159,14 @@ $citys = mysqli_query($connect, "SELECT * FROM `city`")
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Город</label>
                                                 <select name="cityName">
+                                                    <option value="<?php echo $product['city'] ?>"><?php echo $product['cityName'] ?></option>
                                                     <?php
                                                     foreach ($citys as $city) {
+                                                        if ($city['id'] != $product['city']) {
                                                     ?>
-                                                        <option value="<?php echo $city['id'] ?>"><?php echo $city['name'] ?></option>
+                                                            <option value="<?php echo $city['id'] ?>"><?php echo $city['name'] ?></option>
                                                     <?php
+                                                        }
                                                     }
                                                     ?>
                                                 </select>
