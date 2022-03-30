@@ -3,13 +3,15 @@ session_start();
 /*if(!$_SESSION['user']){
         header('Location: ../index.php');
     }*/
-include "../inc/connect.php";
-//$connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
-$result = mysqli_query($connect, "SELECT products.*, category.nameCategory, category.nameCategoryKz, category.price FROM `products` join category on category.id = products.type");
-//print_r($result);
-//ini_set('date.timezone', 'Asia/Almaty');
-?>
+    include "../inc/connect.php";
+    //$connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
+    $result = mysqli_query($connect,"SELECT products.*, category.nameCategory, category.nameCategoryKz, category.price FROM `products` join category on category.id = products.type");
+	$category = mysqli_query($connect, "SELECT * FROM `category`");
+	print_r(mysqli_fetch_assoc($category));
 
+    //print_r($result);
+    //ini_set('date.timezone', 'Asia/Almaty');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,8 +45,20 @@ $result = mysqli_query($connect, "SELECT products.*, category.nameCategory, cate
 			</ul>
 		</div>
 	</header>
-	<section class="page__products products">
-		<div class="products-container _contein">
+    <section class="page__products products">
+		<div class="product__menu _contein">
+			<ul class="product__body__menu">
+				<?php
+				foreach($category as $type)
+					{
+				?>
+					<li class="product__menu__link"><a href="../inc/productFilter.php?id=<?php echo $type['id'];?>"><?php echo $type['nameCategory']?></a></li>
+				<?php
+					}
+				?>	
+			</ul>		
+		</div>
+        <div class="products-container _contein">
 			<h2 class="products__title _title"></h2>
 			<div class="products__items">
 				<?php
@@ -54,11 +68,20 @@ $result = mysqli_query($connect, "SELECT products.*, category.nameCategory, cate
 						<div class="item__product__image _ibg">
 							<img src="../<?php echo $product['pathImage'] ?>" alt="">
 						</div>
-						<div class="nameAndType">
-							<p><?php echo $product['name'] ?></p>
-							<p><?php echo $product['nameCategory'] ?></p>
+						<div class="item__product__body">
+							<div class="item__product__content">
+								<div class="item__product__title">
+									<p><?php echo $product['name']?></p>
+								</div>
+								<div class="item__product__text">
+									<?php echo $product['nameCategory']?>
+								</div>
+								<div class="item__product__buttons">
+									<a href="productCalculate.php?id=<?php echo $product['id']; ?>" class="item__product__button">Подробнее</a>
+								</div>
+							</div>		
 						</div>
-						<a href="productCalculate.php?id=<?php echo $product['id']; ?>">Подробнее</a>
+						
 					</div>
 				<?php
 				}

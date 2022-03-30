@@ -160,6 +160,35 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                                         </div>
                                     </form>
                                 </div>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Цена</label>
+                                    <input type="text" name="price" class="popap__lable" value="<?php echo $product['price'] ?>">
+                                </div>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Характиристика</label>
+                                    <input type="text" name="harackter" class="popap__lable" value="<?php echo $product['harackter'] ?>">
+                                </div>
+                                <div class="popap__text">
+                                    <label for="" class="popap__lable">Тип</label>
+                                    <select name="nameCategory" class="popap__lable" value="<?php echo $product['nameCategory'] ?>">
+                                        <option value="<?php echo $product['type'] ?>"><?php echo $product['nameCategory'] ?></option>
+                                        <?php
+                                        $selected = $product['type'];
+                                        foreach ($category as $type) {
+                                            if ($selected != $type['id']) {
+                                        ?>
+                                                <option value="<?php echo $type['id'] ?>"><?php echo $type['nameCategory'] ?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                                <input type="file" name="file" id="" accept="image/jpeg,image/png">
+                                <input type="text" name="id" style="display: none;" value="<?php echo $product['id'] ?>">
+                                <br>
+                                <button type="submit">Сохранить</button>
                             </div>
                         </div>
                         <div class="table__title">

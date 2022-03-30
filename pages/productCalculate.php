@@ -50,54 +50,86 @@
         <?php
             $product = mysqli_fetch_assoc($result);
         ?>
-            <div class="product">
-                <div class = "product_img">
-                    <img src="../<?php echo $product['pathImage']?>" alt="">   
+            <div class="product _contein">
+                <div class="product__harackter__content">
+                    <div class = "product_img">
+                        <img src="../<?php echo $product['pathImage']?>" alt="">   
+                    </div>
+                    <div class="harackter">
+                        <div class="harackter__title">Наименование</div>
+                        <div class="harackter__text">
+                            <?php echo $product['name']?>
+                        </div>
+                        <div class="harackter__title">Тип</div>
+                        <div class="harackter__text">
+                            <?php echo $product['nameCategory']?>
+                        </div>
+                        <div class="harackter__title">Характиристика</div>
+                        <div class="harackter__text">
+                            <?php echo $product['harackter']?>
+                        </div>
+                    </div>
                 </div>
-                <div class="harakter">
-                    <p><?php echo $product['name']?></p>
-                    <p><?php echo $product['nameCategory']?></p>
-                    <p><?php echo $product['harackter']?></p>
-                </div>
-                <div class="calculate">
-                    <form action="../inc/createZakazProc.php" method="POST" name = "myForm">
-                        <input type="text" name="productId" value="<?php echo $product['id']?>" style = "display:none;"> 
-                        <input type="text" name="width" id = "width" placeholder="Ширина" oninput="calcualte()">
-                        <input type="text" name="height" id = "height" placeholder="Высота" oninput="calcualte()">
-                        <?php
-                        foreach($otkos as $valueOtkos)
-                            {
-                        ?>  
-                        <input type="radio" id="<?php echo $valueOtkos['price']?>" name="otkosId" value="<?php echo $valueOtkos['id']?>">
-                        <label for="Choice<?php echo $valueOtkos['id']?>"><?php echo $valueOtkos['ot']?> - <?php echo $valueOtkos['do']?></label>
-                        <?php
-                            }
-                        ?> 
-                        <input id = "price" type="text" name="price">
-                        <label for="price">Цена</label>
-                        <input type="text" id = "priceKvm" value = "<?php echo $product['categoryPrice']?>" style = "display:none">
-                        <script>
-                            function calcualte(){
-                                var x = parseFloat(document.getElementById("width").value)||0; 
-                                var y = parseFloat(document.getElementById("height").value)||0;
-                                var kvm = parseFloat(document.getElementById("priceKvm").value)||0;
-                                document.getElementById("price").value = (x * 0.001 + y * 0.001) * kvm;
-                            }
-                            function onclick(e){
-                                    language = parseFloat(e.target.id)||0;
+                <div class="product__calculate">
+                    <div class="product__calculate__parametr">
+                        <div class="_mainTitle">Параметры</div>
+                        <form action="../inc/createZakazProc.php" method="POST" name = "myForm">
+                            <div class="calculate__parametr__title">Размер</div>
+                            <div class="product__calculate__size">
+                                <input type="text" name="productId" value="<?php echo $product['id']?>" style = "display:none;"> 
+                                <input type="text" name="width" id = "width" placeholder="Ширина" oninput="calcualte()">
+                                <input type="text" name="height" id = "height" placeholder="Высота" oninput="calcualte()">
+                            </div>
+                            <div class="calculate__parametr__title">Откос</div>
+                            <div class="product__calculate__otkos">
+                                <?php
+                                foreach($otkos as $valueOtkos)
+                                    {
+                                ?>  
+                                <input type="radio" id="<?php echo $valueOtkos['price']?>" name="otkosId" value="<?php echo $valueOtkos['id']?>">
+                                <label for="Choice<?php echo $valueOtkos['id']?>"><?php echo $valueOtkos['ot']?> - <?php echo $valueOtkos['do']?></label>
+                                <?php
+                                    }
+                                ?>
+                            </div>
+                            <div class="calculate__parametr__title">Цена</div>
+                            <div class="product__calculate__totalPrice">
+                                <input id = "price" type="text" name="price">
+                                <input type="text" id = "priceKvm" value = "<?php echo $product['categoryPrice']?>" style = "display:none">
+                            </div>
+                            <script>
+                                function calcualte(){
                                     var x = parseFloat(document.getElementById("width").value)||0; 
                                     var y = parseFloat(document.getElementById("height").value)||0;
                                     var kvm = parseFloat(document.getElementById("priceKvm").value)||0;
-                                    var total = (x * 0.001 + y * 0.001) * kvm;
-                                    document.getElementById("price").value = total + language;
+                                    document.getElementById("price").value = (x * 0.001 + y * 0.001) * kvm;
                                 }
-                                for (var i = 0; i < myForm.otkosId.length; i++) {
-                                    myForm.otkosId[i].addEventListener("click", onclick);
-                                }
-                        </script>
-                        <button type="submit">Добавить в корзину</button>
-                    </form>
+                                function onclick(e){
+                                        language = parseFloat(e.target.id)||0;
+                                        var x = parseFloat(document.getElementById("width").value)||0; 
+                                        var y = parseFloat(document.getElementById("height").value)||0;
+                                        var kvm = parseFloat(document.getElementById("priceKvm").value)||0;
+                                        var total = (x * 0.001 + y * 0.001) * kvm;
+                                        document.getElementById("price").value = total + language;
+                                    }
+                                    for (var i = 0; i < myForm.otkosId.length; i++) {
+                                        myForm.otkosId[i].addEventListener("click", onclick);
+                                    }
+                            </script>
+                            <button type="submit">Добавить в корзину</button>
+                        </form>
+                    </div>
+                    <div class="product__additional">
+                        <form action="">
+                            <label for=""><input type="checkbox" >подоконник</label>
+                            <label for=""><input type="checkbox" >подоконник</label>
+                            <label for=""><input type="checkbox" >подоконник</label>
+                            <label for=""><input type="checkbox" >подоконник</label>
+                            <label for=""><input type="checkbox" >подоконник</label>
+                        </form>
+                    </div>  
                 </div>
+                  
             </div>
     </section>
     <footer class="footer">
