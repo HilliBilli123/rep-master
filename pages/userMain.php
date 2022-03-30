@@ -47,6 +47,7 @@ $citys = mysqli_query($connect, "SELECT * FROM `city`")
                     <a href="cityMain.php" class="manufact__link">Город</a>
                     <a href="otkosMain.php" class="manufact__link">Откос</a>
                     <a href="zakazMain.php" class="manufact__link">Заказ</a>
+                    <a href="workTypeMain.php" class="manufact__link">Вид работы</a>
                 </div>
             </div>
         </div>

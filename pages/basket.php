@@ -40,9 +40,11 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
 						<img src="response/image/flagRu.png" alt="">
 					</ul>
 				</li> -->
-                <li class="menu__link menu__auth"><a href="../pages/singin.php">
+                <li class="menu__link menu__auth">
+                    <a href="../pages/singin.php">
                         <img src="../response/image/userIcon.png" alt="">
-                    </a></li>
+                    </a>
+                </li>
             </ul>
         </div>
     </header>
@@ -62,6 +64,7 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
                         <p><?php echo $product['height'] ?></p>
                         <p><?php echo $product['width'] ?></p>
                         <p><?php echo $product['price'] ?></p>
+                        <p><?php echo $workTypes['name'] ?></p>
                         <p><?php echo $product['otkosOt'] ?> - <?php echo $product['otkosDo'] ?></p>
                     </div>
                 </div>

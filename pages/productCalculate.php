@@ -13,7 +13,7 @@ $result = mysqli_query($connect, "SELECT products.*, category.nameCategory, cate
 $otkos = mysqli_query($connect, "select * from otkos");
 $product = mysqli_fetch_assoc($result);
 $categoryId = $product['type'];
-$workTypes = mysqli_query($connect, "select * from `workType` where categoryId = '$categoryId'");
+$workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId` = '$categoryId'");
 // print_r($result);
 //ini_set('date.timezone', 'Asia/Almaty');
 ?>
@@ -35,16 +35,20 @@ $workTypes = mysqli_query($connect, "select * from `workType` where categoryId =
         <div class="header__body _contein">
             <ul class="header__body__menu">
                 <li class="menu__logo"><img src="../response/image/logo.png" alt="logo"></li>
-                <li class="menu__link"><a href="../index.html">Главная</a></li>
-                <li class="menu__link"><a href="products.php">Товары</a></li>
-                <li class="menu__link"><a href="">Услуги</a></li>
-                <li class="menu__link"><a href="">Корзина</a></li>
+                <li class="menu__link"><a href="../index.php">Главная</a></li>
+                <li class="menu__link"><a href="../pages/products.php">Товары</a></li>
+                <li class="menu__link"><a href="../pages/basket.php">Корзина</a></li>
                 <li class="menu__link"><a href="">Контакты</a></li>
-                <li>
-                    <ul class="menu__lang">
-                        <img src="response/image/flagKz.png" alt="">
-                        <img src="response/image/flagRu.png" alt="">
-                    </ul>
+                <!-- <li>
+					<ul class="menu__lang">
+						<img src="response/image/flagKz.png" alt="">
+						<img src="response/image/flagRu.png" alt="">
+					</ul>
+				</li> -->
+                <li class="menu__link menu__auth">
+                    <a href="../pages/singin.php">
+                        <img src="../response/image/userIcon.png" alt="">
+                    </a>
                 </li>
             </ul>
         </div>
@@ -99,7 +103,7 @@ $workTypes = mysqli_query($connect, "select * from `workType` where categoryId =
                             <?php
                             foreach ($workTypes as $workType) {
                             ?>
-                                <label for=""><input type="checkbox" id="<?php echo $workType['price'] ?>" name="workType" value="<?php echo $workType['id'] ?>"><?php echo $workType['name'] ?></label>
+                                <label for=""><input type="checkbox" id="<?php echo $workType['price'] ?>" name="workType" value="<?php echo $workType['name'] ?>"><?php echo $workType['name'] ?></label>
                             <?php
                             }
                             ?>

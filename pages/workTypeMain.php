@@ -39,16 +39,14 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                 </div>
                 <div class="menu__admin__pages__list">
                     <a href="admin.php" class="manufact__link">На главную</a>
-                    <a href="" class="manufact__link">Товаровы</a>
-                    <a href="" class="manufact__link">Производители</a>
-                    <a href="" class="manufact__link">Категории</a>
-                    <a href="" class="manufact__link">Пользоваетели</a>
-                    <a href="" class="manufact__link">Город</a>
-                    <a href="" class="manufact__link">Откос</a>
-                    <a href="" class="manufact__link">Заказ</a>
-                    <a href="" class="manufact__link">Вид работы</a>
-                    <!-- <a href="" class="manufact__link"></a>
-                    <a href="" class="manufact__link"></a> -->
+                    <a href="productMain.php" class="manufact__link">Товаровы</a>
+                    <a href="manufacturesMain.php" class="manufact__link">Производители</a>
+                    <a href="categoryMain.php" class="manufact__link">Категории</a>
+                    <a href="userMain.php" class="manufact__link">Пользоваетели</a>
+                    <a href="cityMain.php" class="manufact__link">Город</a>
+                    <a href="otkosMain.php" class="manufact__link">Откос</a>
+                    <a href="zakazMain.php" class="manufact__link">Заказ</a>
+                    <a href="workTypeMain.php" class="manufact__link">Вид работы</a>
                 </div>
             </div>
         </div>
