@@ -50,44 +50,50 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
     </header>
     <section class="main">
         <form action="../inc/createZakaz.php" method="POST">
-            <?php
-            $ids = "";
-            foreach ($result as $product) {
-            ?>
-                <div class="product">
-                    <div class="product_img">
-                        <img src="../<?php echo $product['pathImage'] ?>" alt="">
-                    </div>
-                    <div class="nameAndType">
-                        <p><?php echo $product['productName'] ?></p>
-                        <p><?php echo $product['nameCategory'] ?></p>
-                        <p><?php echo $product['height'] ?></p>
-                        <p><?php echo $product['width'] ?></p>
-                        <p><?php echo $product['price'] ?></p>
-                        <p><?php echo $workTypes['name'] ?></p>
-                        <p><?php echo $product['otkosOt'] ?> - <?php echo $product['otkosDo'] ?></p>
-                    </div>
+            <div class="basket _contein">
+                <div class="basket__product">
+                    <?php
+                    $ids = "";
+                    foreach ($result as $product) {
+                    ?>
+                    
+                        <div class="basket__product__haracter">
+                            <div class="basket__img">
+                                <img src="../<?php echo $product['pathImage'] ?>" alt="">
+                            </div>
+                            <div class="nameAndType">
+                                <p><?php echo $product['productName'] ?></p>
+                                <p><?php echo $product['nameCategory'] ?></p>
+                                <p><?php echo $product['height'] ?></p>
+                                <p><?php echo $product['width'] ?></p>
+                                <p><?php echo $product['price'] ?></p>
+                                <p><?php echo $workTypes['name'] ?></p>
+                                <p><?php echo $product['otkosOt'] ?> - <?php echo $product['otkosDo'] ?></p>
+                            </div>
+                        </div>
+                        <input type="text" name="idZakazProc[]" value="<?php echo $product['id'] ?>" style="display:none;">
+                        <input type="text" name="otkosId[]" value="<?php echo $product['otkosId'] ?>" style="display:none;">
+                        <input type="text" name="productId[]" value="<?php echo $product['productId'] ?>" style="display:none;">
+                        <input type="text" name="width[]" value="<?php echo $product['width'] ?>" style="display:none;">
+                        <input type="text" name="height[]" value="<?php echo $product['height'] ?>" style="display:none;">
+                        <input type="text" name="price[]" value="<?php echo $product['price'] ?>" style="display:none;">
+                    
+                <?php
+                }
+                ?>
                 </div>
-                <input type="text" name="idZakazProc[]" value="<?php echo $product['id'] ?>" style="display:none;">
-                <input type="text" name="otkosId[]" value="<?php echo $product['otkosId'] ?>" style="display:none;">
-                <input type="text" name="productId[]" value="<?php echo $product['productId'] ?>" style="display:none;">
-                <input type="text" name="width[]" value="<?php echo $product['width'] ?>" style="display:none;">
-                <input type="text" name="height[]" value="<?php echo $product['height'] ?>" style="display:none;">
-                <input type="text" name="price[]" value="<?php echo $product['price'] ?>" style="display:none;">
-            <?php
-            }
-            ?>
-            <div class="zakaz">
-                <!-- <input type="number" name = "idZakazProc" value = "<?php echo $product['id'] ?>" style = "display:none;" > -->
-                <input type="text" name="fio" id="fio">
-                <label for="fio">ФИО</label>
-                <input type="text" name="email" id="email">
-                <label for="email">Email</label>
-                <input type="text" name="phone" id="phone">
-                <label for="phone">Сотовый телефон</label>
-                <input type="text" name="addr" id="addr">
-                <label for="addr">Адрес доставки</label>
-                <button type="submit">Заказать</button>
+                <div class="zakaz">
+                    <!-- <input type="number" name = "idZakazProc" value = "<?php echo $product['id'] ?>" style = "display:none;" > -->
+                    <input type="text" name="fio" id="fio">
+                    <label for="fio">ФИО</label>
+                    <input type="text" name="email" id="email">
+                    <label for="email">Email</label>
+                    <input type="text" name="phone" id="phone">
+                    <label for="phone">Сотовый телефон</label>
+                    <input type="text" name="addr" id="addr">
+                    <label for="addr">Адрес доставки</label>
+                    <button type="submit">Заказать</button>
+                </div>
             </div>
         </form>
     </section>

@@ -388,7 +388,8 @@ body {
 }
 
 .item__product {
-	background-color: #182d4cd5;
+	border-radius: 3px;
+	background-color: #182d4c;
 	width: 13vw;
 	/* height: 18vw; */
 	display: flex;
@@ -398,6 +399,7 @@ body {
 	justify-content: center;
 	position: relative;
 	margin-right: 10px;
+	/* border: 2px solid #182d4c; */
 }
 
 .item__product__image {
@@ -439,6 +441,8 @@ body {
 	font-size: 1.3vw;
 	line-height: 19px;
 	color: #fff;
+	padding-bottom: 10px;
+	/* text-align: center; */
 }
 
 .item__product__text {
@@ -470,7 +474,8 @@ body {
 .item__product__button {
 	background-color: #fff;
 	border-radius: 4px;
-	height: 1.5vw;
+	/* height: 1.5vw; */
+	padding: 0.8vw;
 	width: 100%;
 	display: flex;
 	flex: 1 1 auto;
@@ -483,6 +488,7 @@ body {
 	font-weight: 700;
 	transition: all 0.5s;
 	font-size: 0.9vw;
+	border: 1px solid #182d4c;
 }
 
 .item__product__button:hover {
@@ -493,49 +499,77 @@ body {
 /* ==================== страница Калькулятор ========================================= */
 
 .product {
-	display: flex;
-	/* justify-content: space-between;
+	/* display: flex; */
+	/* justify-content: center;
 	align-items: center; */
+	height: 100%;
 }
 
 .product__harackter__content {
-	width: 35%;
+	background-color: #182D4C;
+	padding: 10px;
+	display: flex;
+	width: 40vw;
+	/* height: 30vw; */
+	/* width: 35%; */
 
 }
 
+.product__calculate__main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.haracter__content {
+	display: flex;
+	margin-top: 10px;
+}
 
 .harackter {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 	padding: 10px;
+	width: 50%;
 }
+
+
 
 .product_img {
 	text-align: center;
-	width: 12vw;
-	height: 15vw;
+	width: 50%;
+	height: 20vw;
+	background-color: #fff;
 }
 
 .product_img img {
-	max-width: 100%;
-	max-height: 100%;
-	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }
 
 .harackter__title {
-	color: #182D4C;
+	color: #fff;
 	letter-spacing: 0.1vw;
 	font-size: 1.3vw;
+	border-bottom: 1px solid #fff;
 }
 
 .harackter__text {
-	color: #182D4C;
+	color: #fff;
 	font-size: 1vw;
 }
 
-.product__calculate {
+.product__calculate { 
 	flex: 1 1 auto;
+	/* display: flex; */
+	/* flex-wrap: wrap; */
+	margin-top: 10px;
+}
+
+.parametr__andDop {
 	display: flex;
-	flex-wrap: wrap;
-	margin: 10px;
 }
 
 ._mainTitle {
@@ -560,4 +594,62 @@ body {
 .calculate__parametr__title {
 	color: #182D4C;
 	font-size: 1vw;
+}
+
+
+/* ==================== страница Карзина ========================================= */
+.basket__product__haracter {
+	display: flex;
+	justify-content: space-around;
+	background-color: #182D4C;
+	width: 25vw;
+	height: 10vw;
+	padding: 10px;
+	color: #fff;
+	margin-right: 5px;
+	border-radius: 4px;
+}
+
+.basket__product__haracter:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.basket__product {
+	overflow-y: auto;
+	height: 100%;
+	overflow-x:hidden;
+}
+
+.basket {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 50px;
+	overflow: hidden;
+	height: 35vw;
+	width: 40vw;
+}
+
+.zakaz {
+	display: flex;
+	flex-direction: column;
+}
+
+.nameAndType {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 50%;
+	padding-left: 40px;
+}
+
+.basket__img {
+	text-align: center;
+	width: 50%;
+	background-color: #fff;
+}
+
+.basket__img img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }

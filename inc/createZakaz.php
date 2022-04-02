@@ -14,6 +14,7 @@
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $addr = $_POST['addr'];
+    $dops = $_POST['dop'];
     $count = 0;
     foreach($ids as $id){
         $otkosId = $otkosIds[$count];
@@ -21,12 +22,13 @@
         $width = $widths[$count];
         $height = $heights[$count];
         $price = $prices[$count];
-        mysqli_query($connect, "INSERT INTO `zakaz`(`categoryId`, `otkosId`, `height`, `width`, `productId`, `price`, `fio`, `email`, `phone`, `addr`) VALUES (0,'$otkosId','$height','$width','$price','$productId', '$fio', '$email', '$phone', '$addr')");
+        $dop = $dops[$count];
+        mysqli_query($connect, "INSERT INTO `zakaz`(`categoryId`, `otkosId`, `height`, `width`, `productId`, `price`, `fio`, `email`, `phone`, `addr`, `dop`) VALUES (0,'$otkosId','$height','$width','$productId','$price', '$fio', '$email', '$phone', '$addr', '$dop')");
         mysqli_query($connect, "delete from `zakazprocedure` where id = $id");        
         $count++;
     }
     //include "../inc/connect.php";
     //$connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
     //ini_set('date.timezone', 'Asia/Almaty');
-     header('Location: ../index.html');
+     header('Location: ../index.php');
 ?>

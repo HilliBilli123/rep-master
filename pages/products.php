@@ -69,14 +69,15 @@ $category = mysqli_query($connect, "SELECT * FROM `category`");
 				foreach ($result as $product) {
 				?>
 					<div class="products__item item__product">
+						<div class="item__product__title">
+							<p><?php echo $product['name'] ?></p>
+						</div>
 						<div class="item__product__image _ibg">
 							<img src="../<?php echo $product['pathImage'] ?>" alt="">
 						</div>
 						<div class="item__product__body">
 							<div class="item__product__content">
-								<div class="item__product__title">
-									<p><?php echo $product['name'] ?></p>
-								</div>
+								
 								<div class="item__product__text">
 									<?php echo $product['nameCategory'] ?>
 								</div>

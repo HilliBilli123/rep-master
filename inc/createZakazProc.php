@@ -11,9 +11,9 @@ $price = $_POST['price'];
 $otkosId = $_POST['otkosId'];
 $workTypes = $_POST['workType'];
 $dop = "";
-foreach ($workTypes as $workType) {
-    $dop += $workType;
-}
+// foreach ($workTypes as $workType) {
+//     $dop += $workType;
+// }
 //include "../inc/connect.php";
 //$connect = mysqli_connect('localhost', 'root' , '' , 'bibala');
 mysqli_query($connect, "INSERT INTO `zakazprocedure`(`categoryId`, `otkosId`, `height`, `width`, `productId`, `price`, `dop`) VALUES ('0','$otkosId','$height','$width','$id', '$price', '$dop')");

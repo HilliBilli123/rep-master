@@ -53,7 +53,7 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
             </ul>
         </div>
     </header>
-    <section class="main">
+    <section class="product__calculate__main">
         <?php
 
         ?>
@@ -62,7 +62,7 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
                 <div class="product_img">
                     <img src="../<?php echo $product['pathImage'] ?>" alt="">
                 </div>
-                <div class="harackter">
+                <div class="harackter"> 
                     <div class="harackter__title">Наименование</div>
                     <div class="harackter__text">
                         <?php echo $product['name'] ?>
@@ -71,43 +71,50 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
                     <div class="harackter__text">
                         <?php echo $product['nameCategory'] ?>
                     </div>
+                    
                     <div class="harackter__title">Характиристика</div>
                     <div class="harackter__text">
                         <?php echo $product['harackter'] ?>
                     </div>
                 </div>
             </div>
-            <div class="product__calculate">
-                <div class="product__calculate__parametr">
-                    <div class="_mainTitle">Параметры</div>
-                    <form action="../inc/createZakazProc.php" method="POST" name="myForm">
-                        <div class="calculate__parametr__title">Размер</div>
-                        <div class="product__calculate__size">
-                            <input type="text" name="productId" value="<?php echo $product['id'] ?>" style="display:none;">
-                            <input type="text" name="width" id="width" placeholder="Ширина" oninput="calcualte()">
-                            <input type="text" name="height" id="height" placeholder="Высота" oninput="calcualte()">
+            <form action="../inc/createZakazProc.php" method="POST" name="myForm">
+                <div class="product__calculate">
+                    <div class="parametr__andDop">
+                        <div class="product__calculate__parametr">
+                            <div class="_mainTitle">Параметры</div>
+                            <div class="calculate__parametr__title">Размер</div>
+                            <div class="product__calculate__size">
+                                <input type="text" name="productId" value="<?php echo $product['id'] ?>" style="display:none;">
+                                <input type="text" name="width" id="width" placeholder="Ширина" oninput="calcualte()">
+                                <input type="text" name="height" id="height" placeholder="Высота" oninput="calcualte()">
+                            </div>
+                            <div class="calculate__parametr__title">Откос</div>
+                            <div class="product__calculate__otkos">
+                                <?php
+                                foreach ($otkos as $valueOtkos) {
+                                ?>
+                                    <input type="radio" id="<?php echo $valueOtkos['price'] ?>" name="otkosId" value="<?php echo $valueOtkos['id'] ?>">
+                                    <label for="Choice<?php echo $valueOtkos['id'] ?>"><?php echo $valueOtkos['ot'] ?> - <?php echo $valueOtkos['do'] ?></label>
+                                <?php
+                                }
+                                ?>
+                            </div>
                         </div>
-                        <div class="calculate__parametr__title">Откос</div>
-                        <div class="product__calculate__otkos">
-                            <?php
-                            foreach ($otkos as $valueOtkos) {
-                            ?>
-                                <input type="radio" id="<?php echo $valueOtkos['price'] ?>" name="otkosId" value="<?php echo $valueOtkos['id'] ?>">
-                                <label for="Choice<?php echo $valueOtkos['id'] ?>"><?php echo $valueOtkos['ot'] ?> - <?php echo $valueOtkos['do'] ?></label>
-                            <?php
-                            }
-                            ?>
+                        <div class="product__calculate__dop">    
+                            <div>Дополнительно</div>
+                            <div class="product__additional">
+                                <?php
+                                foreach ($workTypes as $workType) {
+                                ?>
+                                    <label for=""><input type="checkbox" id="<?php echo $workType['price'] ?>" name="workType" value="<?php echo $workType['name'] ?>"><?php echo $workType['name'] ?></label>
+                                <?php
+                                }
+                                ?>
+                            </div>
                         </div>
-                        <div>Дополнительно</div>
-                        <div class="product__additional">
-                            <?php
-                            foreach ($workTypes as $workType) {
-                            ?>
-                                <label for=""><input type="checkbox" id="<?php echo $workType['price'] ?>" name="workType" value="<?php echo $workType['name'] ?>"><?php echo $workType['name'] ?></label>
-                            <?php
-                            }
-                            ?>
-                        </div>
+                    </div>    
+                    <div class="total__price">        
                         <div class="calculate__parametr__title">Цена</div>
                         <div class="product__calculate__totalPrice">
                             <input id="price" type="text" name="price">
@@ -115,55 +122,10 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
                             <input type="number" id="priceOtkos" value="" style="display:none">
                             <input type="number" id="priceAdd" value="" style="display:none">
                         </div>
-                        <script>
-                            function calcualte() {
-                                var x = parseFloat(document.getElementById("width").value) || 0;
-                                var y = parseFloat(document.getElementById("height").value) || 0;
-                                var kvm = parseFloat(document.getElementById("priceKvm").value) || 0;
-                                var priceAdd = parseFloat(document.getElementById("priceAdd").value) || 0;
-                                var priceOtkos = parseFloat(document.getElementById("priceOtkos").value) || 0;
-                                var total = (x * 0.001 + y * 0.001) * kvm;
-                                document.getElementById("price").value = total + priceOtkos + priceAdd;
-                            }
-
-                            function onclick(e) {
-                                language = parseFloat(e.target.id) || 0;
-                                document.getElementById("priceOtkos").value = language;
-                                var x = parseFloat(document.getElementById("width").value) || 0;
-                                var y = parseFloat(document.getElementById("height").value) || 0;
-                                var kvm = parseFloat(document.getElementById("priceKvm").value) || 0;
-                                var priceAdd = parseFloat(document.getElementById("priceAdd").value) || 0;
-                                var total = (x * 0.001 + y * 0.001) * kvm;
-                                document.getElementById("price").value = total + language + priceAdd;
-
-                            }
-                            for (var i = 0; i < myForm.otkosId.length; i++) {
-                                myForm.otkosId[i].addEventListener("click", onclick);
-                            }
-
-                            function addCalc(d) {
-                                check = d.target.checked;
-                                language = parseFloat(d.target.id) || 0;
-                                var priceAdd = parseFloat(document.getElementById("priceAdd").value) || 0;
-                                var total = parseFloat(document.getElementById("price").value) || 0;
-                                if (check) {
-                                    document.getElementById("price").value = total + language;
-                                    document.getElementById("priceAdd").value = priceAdd + language;
-                                } else {
-                                    document.getElementById("price").value = total - language;
-                                    document.getElementById("priceAdd").value = priceAdd - language;
-                                }
-                            }
-                            for (var i = 0; i < myForm.workType.length; i++) {
-                                myForm.workType[i].addEventListener("click", addCalc);
-                            }
-                        </script>
                         <button type="submit">Добавить в корзину</button>
-                    </form>
-                </div>
-
-            </div>
-
+                    </div>
+                </div>        
+            </form>               
         </div>
     </section>
     <footer class="footer">
@@ -191,8 +153,7 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
             </div>
         </div>
     </footer>
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="../js/nazar.js"></script>
 </body>
 
 </html>

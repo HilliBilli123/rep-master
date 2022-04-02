@@ -12,3 +12,19 @@
 .main {
 	flex: 1 1 auto;
 }
+
+*::-webkit-scrollbar { 
+	width: 12px;
+	border-radius: 4px;
+}
+
+*::-webkit-scrollbar-track {
+	background: #182d4c44;
+	border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #182D4C;    
+	border-radius: 20px;       
+	/* border: 3px solid orange;   */
+}
