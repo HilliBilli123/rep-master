@@ -134,7 +134,7 @@
 			<div class="main__about _contein">
 				<div class="main__about__photo ">
 					<div class="photo__contein">
-						<img src="response/image/Знак-качества_Хай.svg" alt="">
+						<img src="response/image/window1.png" alt="">
 					</div>
 						<!-- <img src="response/image/Знак-качества_Хай.svg" alt=""> -->
 					<div class="photo__text__contein">
@@ -152,11 +152,39 @@
 						</div>
 					</div>
 					<div class="photo__contein">
-						<img src="response/image/Знак-качества_Хай.svg" alt="">
+						<img src="response/image/window2.png" alt="">
 					</div>
 				</div>
 			</div>
 		</div>
+		<div id="about2" class="about color">
+			<div class="main__about _contein">
+				<div class="main__about__photo ">
+					<div class="photo__contein">
+						<img src="response/image/profildoors.png" alt="">
+					</div>
+						<!-- <img src="response/image/Знак-качества_Хай.svg" alt=""> -->
+					<div class="photo__text__contein">
+						<div class="text__contein__title">Высочайшее качество</div>
+						<div class="text__contein__text">В производстве пластиковых окон наша компания использует
+							германский профиль производства </div>
+					</div>
+				</div>
+				<div class="main__about__photo ">
+					<div class="photo__text__contein">
+						<div class="text__contein__title">Высочайшее качество</div>
+						<div class="text__contein__text">
+							В производстве пластиковых окон наша компания использует
+							германский профиль производства 
+						</div>
+					</div>
+					<div class="photo__contein">
+						<img src="response/image/doors2.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		.
 		<div id="specification" class="specification">
 			<div class="swiper specification__slider _contein specification__slider__contein">
 				<!-- Additional required wrapper -->
