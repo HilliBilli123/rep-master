@@ -54,7 +54,7 @@ $result = mysqli_query($connect, "SELECT * FROM `manufactures`");
                 <a href="" class="button__add">Добавить</a>
                 <div class="popap__window">
                     <div class="popap__window__conten">
-                        <form action="../inc/mainAdd.php" enctype="multipart/form-data" method="post" class="popap__form">
+                        <form action="../inc/manufacturesAdd.php" enctype="multipart/form-data" method="post" class="popap__form">
                             <div class="popap__title">Редактирование</div>
                             <div class="popap__out">X</div>
                             <div class="popap__all">
@@ -97,7 +97,7 @@ $result = mysqli_query($connect, "SELECT * FROM `manufactures`");
                             <a class="icon-edit" href=""></a>
                             <div class="popap__window">
                                 <div class="popap__window__conten">
-                                    <form action="../inc/mainEdit.php" enctype="multipart/form-data" method="post" class="popap__form">
+                                    <form action="../inc/manufacturesEdit.php" enctype="multipart/form-data" method="post" class="popap__form">
                                         <div class="popap__title">Редактирование</div>
                                         <div class="popap__out">X</div>
                                         <div class="popap__all">
@@ -119,7 +119,7 @@ $result = mysqli_query($connect, "SELECT * FROM `manufactures`");
                             </div>
                         </div>
                         <div class="table__title">
-                            <form action="../inc/mainDelete.php">
+                            <form action="../inc/manufacturesDelete.php">
                                 <a class="icon-bin" href="../inc/mainDelete.php?id=<?php echo $product['id']; ?>"></a>
                             </form>
                         </div>
