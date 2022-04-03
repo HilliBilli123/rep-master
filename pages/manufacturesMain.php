@@ -120,7 +120,7 @@ $result = mysqli_query($connect, "SELECT * FROM `manufactures`");
                         </div>
                         <div class="table__title">
                             <form action="../inc/manufacturesDelete.php">
-                                <a class="icon-bin" href="../inc/mainDelete.php?id=<?php echo $product['id']; ?>"></a>
+                                <a class="icon-bin" href="../inc/manufacturesDelete.php?id=<?php echo $product['id']; ?>"></a>
                             </form>
                         </div>
                     </div>
