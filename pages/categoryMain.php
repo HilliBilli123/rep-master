@@ -23,7 +23,7 @@ $result = mysqli_query($connect, "SELECT * FROM `category`");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
-    <title>Category Panel</title>
+    <title>Категории</title>
 </head>
 
 <body class="body">
@@ -39,10 +39,10 @@ $result = mysqli_query($connect, "SELECT * FROM `category`");
                 </div>
                 <div class="menu__admin__pages__list">
                     <a href="admin.php" class="manufact__link">На главную</a>
-                    <a href="productMain.php" class="manufact__link">Товаровы</a>
+                    <a href="productMain.php" class="manufact__link">Товары</a>
                     <a href="manufacturesMain.php" class="manufact__link">Производители</a>
                     <a href="categoryMain.php" class="manufact__link">Категории</a>
-                    <a href="userMain.php" class="manufact__link">Пользоваетели</a>
+                    <a href="userMain.php" class="manufact__link">Пользователи</a>
                     <a href="cityMain.php" class="manufact__link">Город</a>
                     <a href="otkosMain.php" class="manufact__link">Откос</a>
                     <a href="zakazMain.php" class="manufact__link">Заказ</a>
@@ -119,15 +119,15 @@ $result = mysqli_query($connect, "SELECT * FROM `category`");
                                         <div class="popap__all">
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Описание на русском</label>
-                                                <input name="text" type="text" class="popap__lable" value="<?php echo $product['nameCategory'] ?>">
+                                                <input name="nameRu" type="text" class="popap__lable" value="<?php echo $product['nameCategory'] ?>">
                                             </div>
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Описание на казахском</label>
-                                                <input type="text" name="textKz" class="popap__lable" value="<?php echo $product['nameCategoryKz'] ?>">
+                                                <input type="text" name="nameKz" class="popap__lable" value="<?php echo $product['nameCategoryKz'] ?>">
                                             </div>
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Код</label>
-                                                <input type="text" name="textKz" class="popap__lable" value="<?php echo $product['code'] ?>">
+                                                <input type="text" name="code" class="popap__lable" value="<?php echo $product['code'] ?>">
                                             </div>
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Описание</label>
@@ -135,7 +135,7 @@ $result = mysqli_query($connect, "SELECT * FROM `category`");
                                             </div>
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Цена</label>
-                                                <input type="text" name="textKz" class="popap__lable" value="<?php echo $product['price'] ?>">
+                                                <input type="text" name="price" class="popap__lable" value="<?php echo $product['price'] ?>">
                                             </div>
                                             <input type="text" name="id" style="display: none;" value="<?php echo $product['id'] ?>">
                                             <button type="submit">Сохронить</button>

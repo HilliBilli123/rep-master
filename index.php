@@ -25,7 +25,7 @@
 				<li class="menu__link"><a href="">Главная</a></li>
 				<li class="menu__link"><a href="/pages/products.php">Товары</a></li>
 				<li class="menu__link"><a href="/pages/basket.php">Корзина</a></li>
-				<li class="menu__link"><a href="">Контакты</a></li>
+				<li class="menu__link"><a href="#footerMain">Контакты</a></li>
 				<!-- <li>
 					<ul class="menu__lang">
 						<img src="response/image/flagKz.png" alt="">
@@ -217,7 +217,7 @@
 			</div>
 		</div>
 	</section>
-	<footer class="footer">
+	<footer class="footer" id = "footerMain">
 		<div class="footer__cpntainer _contein">
 			<div class="footer__body">
 

@@ -21,7 +21,7 @@ $product = mysqli_fetch_assoc($result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Zakaz Panel</title>
+    <title>Заказ</title>
 </head>
 
 <body class="body">
@@ -33,10 +33,10 @@ $product = mysqli_fetch_assoc($result);
                 </div>
                 <div class="menu__admin__pages__list">
                     <a href="admin.php" class="manufact__link">На главную</a>
-                    <a href="productMain.php" class="manufact__link">Товаровы</a>
+                    <a href="productMain.php" class="manufact__link">Товары</a>
                     <a href="manufacturesMain.php" class="manufact__link">Производители</a>
                     <a href="categoryMain.php" class="manufact__link">Категории</a>
-                    <a href="userMain.php" class="manufact__link">Пользоваетели</a>
+                    <a href="userMain.php" class="manufact__link">Пользователи</a>
                     <a href="cityMain.php" class="manufact__link">Город</a>
                     <a href="otkosMain.php" class="manufact__link">Откос</a>
                     <a href="zakazMain.php" class="manufact__link">Заказ</a>
