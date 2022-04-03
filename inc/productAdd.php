@@ -6,7 +6,6 @@ require_once 'connect.php';
     }*/
 $name = $_POST['name'];
 $nameKz = $_POST['nameKz'];
-$price = $_POST['price'];
 $harackter = $_POST['harackter'];
 $harackterKz = $_POST['harackterKz'];
 $category = $_POST['nameCategory'];
@@ -16,7 +15,7 @@ if ($_FILES["file"]["name"]) {
         $_SESSION['message'] = 'Ошибка при загрузке фото';
         header('Location: ../pages/manufacturesMain.php');
     }
-    mysqli_query($connect, "INSERT INTO `products` (`name`, `pathImage`, `price`, `harackter`, `type`, `idStock`, `nameKz`, `harakterKz`) VALUES ('$name', '$path', '$price', '$harackter', '$category', '1', '$nameKz', '$harackterKz')");
+    mysqli_query($connect, "INSERT INTO `products` (`name`, `pathImage`, `price`, `harackter`, `type`, `idStock`, `nameKz`, `harakterKz`) VALUES ('$name', '$path', '0', '$harackter', '$category', '1', '$nameKz', '$harackterKz')");
 } else {
     $_SESSION['message'] = 'Загрузите фото';
 }

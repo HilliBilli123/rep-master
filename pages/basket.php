@@ -22,7 +22,7 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/swiper-bundle.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Товары</title>
+    <title>Корзина</title>
 </head>
 
 <body class="body">
@@ -86,7 +86,7 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
                         <input type="text" name="width[]" value="<?php echo $product['width'] ?>" style="display:none;">
                         <input type="text" name="height[]" value="<?php echo $product['height'] ?>" style="display:none;">
                         <input type="text" name="price[]" value="<?php echo $product['price'] ?>" style="display:none;">
-                    
+                        <input type="text" name="dop[]" value="<?php echo $product['dop'] ?>" style="display:none;">
                 <?php
                 }
                 ?>

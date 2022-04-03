@@ -15,7 +15,7 @@ $category = mysqli_query($connect, "SELECT * FROM category");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
-    <title>Products Panel</title>
+    <title>Товары</title>
 </head>
 
 <body class="body">
@@ -27,10 +27,10 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                 </div>
                 <div class="menu__admin__pages__list">
                     <a href="admin.php" class="manufact__link">На главную</a>
-                    <a href="productMain.php" class="manufact__link">Товаровы</a>
+                    <a href="productMain.php" class="manufact__link">Товары</a>
                     <a href="manufacturesMain.php" class="manufact__link">Производители</a>
                     <a href="categoryMain.php" class="manufact__link">Категории</a>
-                    <a href="userMain.php" class="manufact__link">Пользоваетели</a>
+                    <a href="userMain.php" class="manufact__link">Пользователи</a>
                     <a href="cityMain.php" class="manufact__link">Город</a>
                     <a href="otkosMain.php" class="manufact__link">Откос</a>
                     <a href="zakazMain.php" class="manufact__link">Заказ</a>
@@ -56,10 +56,6 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                                     <input name="nameKz" type="text" class="popap__lable">
                                 </div>
                                 <div class="popap__text">
-                                    <label for="" class="popap__lable">Цена</label>
-                                    <input type="text" name="price" class="popap__lable">
-                                </div>
-                                <div class="popap__text">
                                     <label for="" class="popap__lable">Тип</label>
                                     <!-- <input type="text" name="price" class="popap__lable"> -->
                                     <select name="nameCategory" class="popap__lable">
@@ -83,7 +79,7 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                                 </div>
                                 <input type="file" name="file" id="" accept="image/jpeg,image/png">
                                 <br>
-                                <button type="submit">Сохронить</button>
+                                <button type="submit">Сохранить</button>
                             </div>
                         </form>
                     </div>
@@ -96,7 +92,6 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                     <div class="table__title">Изображение</div>
                     <div class="table__title">Тип</div>
                     <div class="table__title">Характиристика каз/рус</div>
-                    <div class="table__title">Цена</div>
                     <div class="table__title">Редактировать</div>
                     <div class="table__title">Удалить</div>
                 </div>
@@ -111,13 +106,11 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                         <div class="table__title"><?php echo $product['pathImage'] ?></div>
                         <div class="table__title"><?php echo $product['nameCategory'] ?></div>
                         <div class="table__title"><?php echo $product['harackter'] ?><br><?php echo $product['harakterKz'] ?></div>
-
-                        <div class="table__title"><?php echo $product['price'] ?></div>
                         <div class="table__title">
                             <a class="icon-edit" href=""></a>
                             <div class="popap__window">
                                 <div class="popap__window__conten">
-                                    <form action="../inc/productAdd.php" enctype="multipart/form-data" method="post" class="popap__form">
+                                    <form action="../inc/productEdit.php" enctype="multipart/form-data" method="post" class="popap__form">
                                         <div class="popap__title">Редактирование</div>
                                         <div class="popap__out">X</div>
                                         <div class="popap__all">
@@ -128,10 +121,6 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Название каз</label>
                                                 <input name="nameKz" type="text" class="popap__lable" value="<?php echo $product['nameKz'] ?>">
-                                            </div>
-                                            <div class="popap__text">
-                                                <label for="" class="popap__lable">Цена</label>
-                                                <input type="text" name="price" class="popap__lable" value="<?php echo $product['price'] ?>">
                                             </div>
                                             <div class="popap__text">
                                                 <label for="" class="popap__lable">Характиристика</label>
@@ -159,7 +148,7 @@ $category = mysqli_query($connect, "SELECT * FROM category");
                                             <input type="file" name="file" id="" accept="image/jpeg,image/png">
                                             <input type="text" name="id" style="display: none;" value="<?php echo $product['id'] ?>">
                                             <br>
-                                            <button type="submit">Сохронить</button>
+                                            <button type="submit">Сохранить</button>
                                         </div>
                                     </form>
                                 </div>

@@ -40,7 +40,7 @@ $count7 = $result7['count(*)'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
-    <title>Admin Panel</title>
+    <title>Панель администратора</title>
 </head>
 
 <body class="body">
