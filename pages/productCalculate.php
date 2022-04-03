@@ -89,6 +89,16 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
                                 <input type="text" name="width" id="width" placeholder="Ширина" oninput="calcualte()">
                                 <input type="text" name="height" id="height" placeholder="Высота" oninput="calcualte()">
                             </div>
+                            <div class="calculate__parametr__title">Дополнительно</div>
+                            <div class="product__additional">
+                                <?php
+                                foreach ($workTypes as $workType) {
+                                ?>
+                                    <label for=""><input type="checkbox" id="<?php echo $workType['price'] ?>" name="workType" value="<?php echo $workType['name'] ?>"><?php echo $workType['name'] ?></label>
+                                <?php
+                                }
+                                ?>
+                            </div>
                             <div class="calculate__parametr__title">Откос</div>
                             <div class="product__calculate__otkos">
                                 <?php
@@ -101,29 +111,17 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
                                 ?>
                             </div>
                         </div>
-                        <div class="product__calculate__dop">    
-                            <div>Дополнительно</div>
-                            <div class="product__additional">
-                                <?php
-                                foreach ($workTypes as $workType) {
-                                ?>
-                                    <label for=""><input type="checkbox" id="<?php echo $workType['price'] ?>" name="workType" value="<?php echo $workType['name'] ?>"><?php echo $workType['name'] ?></label>
-                                <?php
-                                }
-                                ?>
+                        <div class="total__price">        
+                            <div class="total__price__title">Цена</div>
+                            <div class="product__calculate__totalPrice">
+                                <input id="price" type="text" name="price" readonly>
+                                <input type="text" id="priceKvm" value="<?php echo $product['categoryPrice'] ?>" style="display:none">
+                                <input type="number" id="priceOtkos" value="" style="display:none">
+                                <input type="number" id="priceAdd" value="" style="display:none">
                             </div>
+                            <button class="calculate__button" type="submit">Добавить в корзину</button>
                         </div>
                     </div>    
-                    <div class="total__price">        
-                        <div class="calculate__parametr__title">Цена</div>
-                        <div class="product__calculate__totalPrice">
-                            <input id="price" type="text" name="price">
-                            <input type="text" id="priceKvm" value="<?php echo $product['categoryPrice'] ?>" style="display:none">
-                            <input type="number" id="priceOtkos" value="" style="display:none">
-                            <input type="number" id="priceAdd" value="" style="display:none">
-                        </div>
-                        <button type="submit">Добавить в корзину</button>
-                    </div>
                 </div>        
             </form>               
         </div>

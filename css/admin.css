@@ -519,3 +519,52 @@ input {
 .contact__title input {
     width: 15vw;
 }
+
+/* ====== Страница заказов ============================================== */
+.zakaz__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
+
+}
+
+.zakaz__content {
+    display: flex;
+	background-color: #182D4C;
+	width: 45vw;
+	height: 25vw;
+	padding: 10px;
+	color: #fff;
+	margin-right: 5px;
+	border-radius: 4px;
+}
+
+
+
+.zakaz__content__img {
+	text-align: center;
+	width: 45%;
+    /* height: vw; */
+	background-color: #fff;
+	border-radius: 4px;
+}
+
+.zakaz__content__img img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.zakaz__info__content {
+    display: flex;
+    justify-content: space-around;
+    flex: 1 1 auto;
+}
+
+.zakaz__info__title {
+    font-size: 1vw;
+    border-bottom: 1px solid #fff;
+}
+
+
