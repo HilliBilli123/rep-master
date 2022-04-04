@@ -52,11 +52,11 @@ $category = mysqli_query($connect, "SELECT * FROM `category`");
 	<section class="page__products products">
 		<div class="product__menu _contein">
 			<ul class="product__body__menu">
-				<li class="product__menu__link"><a href="../pages/products.php">Все</a></li>
+				<a href="../pages/products.php"><li class="product__menu__link">Все</li></a>
 				<?php
 				foreach ($category as $type) {
 				?>
-					<li class="product__menu__link"><a href="../pages/products.php?id=<?php echo $type['id']; ?>"><?php echo $type['nameCategory'] ?></a></li>
+					<a href="../pages/products.php?id=<?php echo $type['id']; ?>"><li class="product__menu__link"><?php echo $type['nameCategory'] ?></li></a>
 				<?php
 				}
 				?>

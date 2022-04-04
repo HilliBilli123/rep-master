@@ -94,7 +94,7 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
                                 <?php
                                 foreach ($workTypes as $workType) {
                                 ?>
-                                    <label for=""><input type="checkbox" id="<?php echo $workType['price'] ?>" name="workType" value="<?php echo $workType['name'] ?>"><?php echo $workType['name'] ?></label>
+                                    <label for=""><input type="checkbox" id="<?php echo $workType['price'] ?>" name="workType[]" value="<?php echo $workType['name'] ?>" onclick = "addCalc(<?php echo $workType['price'] ?>)"><?php echo $workType['name'] ?></label>
                                 <?php
                                 }
                                 ?>

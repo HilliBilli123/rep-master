@@ -138,7 +138,7 @@ $result = mysqli_query($connect, "SELECT * FROM `category`");
                                                 <input type="text" name="price" class="popap__lable" value="<?php echo $product['price'] ?>">
                                             </div>
                                             <input type="text" name="id" style="display: none;" value="<?php echo $product['id'] ?>">
-                                            <button type="submit">Сохронить</button>
+                                            <button type="submit">Сохранить</button>
                                         </div>
                                     </form>
                                 </div>

@@ -72,6 +72,8 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
                             <div class="nameAndType">     
                                 <div class="nameAndType__title">Ширина</div>
                                 <p><?php echo $product['width'] ?></p>
+                                <div class="nameAndType__title">Дополнительно</div>
+                                <p><?php echo $product['dop'] ?></p>
                                 <div class="nameAndType__title">Цена</div>
                                 <p><?php echo $product['price'] ?></p>
                                 <!-- <div class="nameAndType__title">Наименование</div> -->

@@ -338,7 +338,6 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #182D4C;
 	border-left: 1px solid #3a5e94;
 	border-top: 1px solid #3a5e94;
 	border-bottom: 1px solid #3a5e94;
@@ -636,7 +635,7 @@ body {
 	justify-content: space-around;
 	background-color: #182D4C;
 	width: 25vw;
-	height: 10vw;
+	height: 13vw;
 	padding: 10px;
 	color: #fff;
 	margin-right: 5px;
