@@ -62,12 +62,23 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
                                 <img src="../<?php echo $product['pathImage'] ?>" alt="">
                             </div>
                             <div class="nameAndType">
+                                <div class="nameAndType__title">Наименование</div>
                                 <p><?php echo $product['productName'] ?></p>
+                                <div class="nameAndType__title">Тип</div>
                                 <p><?php echo $product['nameCategory'] ?></p>
+                                <div class="nameAndType__title">Высота</div>
                                 <p><?php echo $product['height'] ?></p>
+                            </div>    
+                            <div class="nameAndType">     
+                                <div class="nameAndType__title">Ширина</div>
                                 <p><?php echo $product['width'] ?></p>
+                                <div class="nameAndType__title">Дополнительно</div>
+                                <p><?php echo $product['dop'] ?></p>
+                                <div class="nameAndType__title">Цена</div>
                                 <p><?php echo $product['price'] ?></p>
+                                <!-- <div class="nameAndType__title">Наименование</div> -->
                                 <p><?php echo $workTypes['name'] ?></p>
+                                <div class="nameAndType__title">Откос</div>
                                 <p><?php echo $product['otkosOt'] ?> - <?php echo $product['otkosDo'] ?></p>
                             </div>
                         </div>
@@ -84,15 +95,15 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
                 </div>
                 <div class="zakaz">
                     <!-- <input type="number" name = "idZakazProc" value = "<?php echo $product['id'] ?>" style = "display:none;" > -->
+                    <div class="zakaz__label">ФИО</div>
                     <input type="text" name="fio" id="fio">
-                    <label for="fio">ФИО</label>
+                    <div class="zakaz__label">Email</div>
                     <input type="text" name="email" id="email">
-                    <label for="email">Email</label>
+                    <div class="zakaz__label">Сотовый телефон</div>
                     <input type="text" name="phone" id="phone">
-                    <label for="phone">Сотовый телефон</label>
+                    <div class="zakaz__label">Адрес доставки</div>
                     <input type="text" name="addr" id="addr">
-                    <label for="addr">Адрес доставки</label>
-                    <button type="submit">Заказать</button>
+                    <button class="zakaz__button" type="submit">Заказать</button>
                 </div>
             </div>
         </form>

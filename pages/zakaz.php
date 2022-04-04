@@ -44,25 +44,43 @@ $product = mysqli_fetch_assoc($result);
                 </div>
             </div>
         </div>
-        <div class="product_img">
-            <img src="../<?php echo $product['pathImage'] ?>" alt="">
+        <div class="zakaz__main">
+            <div class="zakaz__content">
+                <div class="zakaz__content__img">
+                    <img src="../<?php echo $product['pathImage'] ?>" alt="">
+                </div>
+                <div class="zakaz__info__content">
+                    <div class="harakter">
+                        <div class="zakaz__info__title">Наименование</div>
+                        <p><?php echo $product['name'] ?></p>
+                        <div class="zakaz__info__title">Тип</div>
+                        <p><?php echo $product['nameCategory'] ?></p>
+                        <div class="zakaz__info__title">Характиристика</div>
+                        <p><?php echo $product['harackter'] ?></p>
+                        <div class="zakaz__info__title">Ширина</div>
+                        <p><?php echo $product['width'] ?></p>
+                        <div class="zakaz__info__title">Высота</div>
+                        <p><?php echo $product['height'] ?></p>
+                        <div class="zakaz__info__title">Откос</div>
+                        <p><?php echo $product['ot'] ?> - <?php echo $product['do'] ?></p>
+                        <div class="zakaz__info__title">Дополнительно</div>
+                        <p><?php echo $product['dop'] ?></p>
+                        <div class="zakaz__info__title">Цена</div>
+                        <p><?php echo $product['price'] ?></p>
+                    </div>
+                    <div class="personInfo">
+                        <div class="zakaz__info__title">ФИО</div>
+                        <p><?php echo $product['fio'] ?></p>
+                        <div class="zakaz__info__title">ЭЛ. почта</div>
+                        <p><?php echo $product['email'] ?></p>
+                        <div class="zakaz__info__title">Телефон</div>
+                        <p><?php echo $product['phone'] ?></p>
+                        <div class="zakaz__info__title">Адрес</div>
+                        <p><?php echo $product['addr'] ?></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="harakter">
-            <p><?php echo $product['name'] ?></p>
-            <p><?php echo $product['nameCategory'] ?></p>
-            <p><?php echo $product['harackter'] ?></p>
-            <p><?php echo $product['width'] ?></p>
-            <p><?php echo $product['height'] ?></p>
-            <p><?php echo $product['price'] ?></p>
-            <p><?php echo $product['ot'] ?> - <?php echo $product['do'] ?></p>
-        </div>
-        <div class="personInfo">
-            <p><?php echo $product['fio'] ?></p>
-            <p><?php echo $product['email'] ?></p>
-            <p><?php echo $product['phone'] ?></p>
-            <p><?php echo $product['addr'] ?></p>
-        </div>
-
     </div>
 </body>
 

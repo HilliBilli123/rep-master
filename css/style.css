@@ -338,7 +338,6 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #182D4C;
 	border-left: 1px solid #3a5e94;
 	border-top: 1px solid #3a5e94;
 	border-bottom: 1px solid #3a5e94;
@@ -541,6 +540,7 @@ body {
 	width: 50%;
 	height: 20vw;
 	background-color: #fff;
+	border-radius: 4px;
 }
 
 .product_img img {
@@ -570,6 +570,8 @@ body {
 
 .parametr__andDop {
 	display: flex;
+	justify-content: space-between;
+
 }
 
 ._mainTitle {
@@ -581,10 +583,26 @@ body {
 .product__calculate__parametr {
 	/* display: flex;
 	flex-direction: column; */
-	max-width: 300px;
-	max-height: 300px;
+	width: 17vw;
+	height: 14vw;
 	padding: 10px;
-	border: 2px solid #182D4C;
+	border: 5px solid #182D4C;
+}
+
+.total__price {
+	border: 5px solid #182D4C;
+	width: 17vw;
+	height: 13vw;
+	padding: 10px;
+}
+
+.total__price > *:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+.total__price__title {
+	color: #182D4C;
+	font-size: 1vw;
 }
 
 .product__calculate__size>*:not(:last-child) {
@@ -597,13 +615,27 @@ body {
 }
 
 
+.calculate__button {
+	border-radius: 5px;
+	background-color: #182D4C;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.5s all;
+}
+
+.calculate__button:hover {
+	background-color: #fff;
+	color: #182D4C;
+}
+
+
 /* ==================== страница Карзина ========================================= */
 .basket__product__haracter {
 	display: flex;
 	justify-content: space-around;
 	background-color: #182D4C;
 	width: 25vw;
-	height: 10vw;
+	height: 13vw;
 	padding: 10px;
 	color: #fff;
 	margin-right: 5px;
@@ -646,10 +678,29 @@ body {
 	text-align: center;
 	width: 50%;
 	background-color: #fff;
+	border-radius: 4px;
 }
 
 .basket__img img {
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
+}
+
+
+.zakaz > *:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+.zakaz__button {
+	border-radius: 5px;
+	background-color: #182D4C;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.5s all;
+}
+
+.zakaz__button:hover {
+	background-color: #fff;
+	color: #182D4C;
 }
