@@ -657,8 +657,8 @@ body {
 	display: flex;
 	justify-content: space-around;
 	background-color: #182D4C;
-	width: 25vw;
-	height: 13vw;
+	width: 40vw;
+	height: 17vw;
 	padding: 10px;
 	color: #fff;
 	margin-right: 5px;
@@ -677,11 +677,11 @@ body {
 
 .basket {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	padding-top: 50px;
 	overflow: hidden;
 	height: 35vw;
-	width: 40vw;
+	/* width: 40vw; */
 }
 
 .zakaz {

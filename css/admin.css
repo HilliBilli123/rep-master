@@ -89,8 +89,8 @@ input {
 .circle__internal::before {
     content: "";
     position: absolute;
-    width: 12.5vw;
-    height: 12.5vw;
+    width: 12.1vw;
+    height: 12.1vw;
     /* border-radius: 50%; */
     background-color: #fff;
     z-index: 1;
@@ -105,17 +105,17 @@ input {
 
 @keyframes rotate {
     0% {
-        width: 255px;
+        width: 12.1vw;
         transform: rotate(0deg);
     }
 
     25% {
-        width: 200px;
+        width: 10vh;
         transform: rotate(45deg);
     }
 
     50% {
-        width: 150px;
+        width: 8vh;
         transform: rotate(90deg);
     }
 
