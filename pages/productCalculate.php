@@ -14,6 +14,9 @@ $otkos = mysqli_query($connect, "select * from otkos");
 $product = mysqli_fetch_assoc($result);
 $categoryId = $product['type'];
 $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId` = '$categoryId'");
+$score1 = mysqli_query($connect, "SELECT count(*) FROM `zakazprocedure`");
+$score1 = mysqli_fetch_assoc($score1);
+$count = $score1['count(*)'];
 // print_r($result);
 //ini_set('date.timezone', 'Asia/Almaty');
 ?>
@@ -37,7 +40,9 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
                 <li class="menu__logo"><img src="../response/image/logo.png" alt="logo"></li>
                 <li class="menu__link"><a href="../index.php">Главная</a></li>
                 <li class="menu__link"><a href="../pages/products.php">Товары</a></li>
-                <li class="menu__link"><a href="../pages/basket.php">Корзина</a></li>
+                <li class="menu__link"><a href="../pages/basket.php">Корзина
+                        <div class="score"><?php echo $count ?></div>
+                    </a></li>
                 <li class="menu__link"><a href="">Контакты</a></li>
                 <!-- <li>
 					<ul class="menu__lang">
@@ -62,7 +67,7 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
                 <div class="product_img">
                     <img src="../<?php echo $product['pathImage'] ?>" alt="">
                 </div>
-                <div class="harackter"> 
+                <div class="harackter">
                     <div class="harackter__title">Наименование</div>
                     <div class="harackter__text">
                         <?php echo $product['name'] ?>
@@ -71,7 +76,7 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
                     <div class="harackter__text">
                         <?php echo $product['nameCategory'] ?>
                     </div>
-                    
+
                     <div class="harackter__title">Характиристика</div>
                     <div class="harackter__text">
                         <?php echo $product['harackter'] ?>
@@ -94,7 +99,7 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
                                 <?php
                                 foreach ($workTypes as $workType) {
                                 ?>
-                                    <label for=""><input type="checkbox" id="<?php echo $workType['price'] ?>" name="workType[]" value="<?php echo $workType['name'] ?>" onclick = "addCalc(<?php echo $workType['price'] ?>)"><?php echo $workType['name'] ?></label>
+                                    <label for=""><input type="checkbox" id="<?php echo $workType['price'] ?>" name="workType[]" value="<?php echo $workType['name'] ?>" onclick="addCalc(<?php echo $workType['price'] ?>)"><?php echo $workType['name'] ?></label>
                                 <?php
                                 }
                                 ?>
@@ -110,8 +115,18 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
                                 }
                                 ?>
                             </div>
+                            <div class="total__price">
+                                <div class="total__price__title">Цена</div>
+                                <div class="product__calculate__totalPrice">
+                                    <input id="price" type="text" name="price" readonly>
+                                    <input type="text" id="priceKvm" value="<?php echo $product['categoryPrice'] ?>" style="display:none">
+                                    <input type="number" id="priceOtkos" value="" style="display:none">
+                                    <input type="number" id="priceAdd" value="" style="display:none">
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="total__price">        
+                        <!-- <div class="total__price">
                             <div class="total__price__title">Цена</div>
                             <div class="product__calculate__totalPrice">
                                 <input id="price" type="text" name="price" readonly>
@@ -119,11 +134,12 @@ $workTypes = mysqli_query($connect, "select * from `worktype` where `categoryId`
                                 <input type="number" id="priceOtkos" value="" style="display:none">
                                 <input type="number" id="priceAdd" value="" style="display:none">
                             </div>
-                            <button class="calculate__button" type="submit">Добавить в корзину</button>
-                        </div>
-                    </div>    
-                </div>        
-            </form>               
+
+                        </div> -->
+                        <button class="calculate__button" type="submit">Добавить в корзину</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
     <footer class="footer">

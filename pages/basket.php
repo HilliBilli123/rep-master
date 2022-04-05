@@ -9,6 +9,9 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
     JOIN otkos on otkos.id = zakazprocedure.otkosId
     JOIN products ON products.id = zakazprocedure.productId
     join category on category.id = products.type");
+$score1 = mysqli_query($connect, "SELECT count(*) FROM `zakazprocedure`");
+$score1 = mysqli_fetch_assoc($score1);
+$count = $score1['count(*)'];
 //print_r($result);
 //ini_set('date.timezone', 'Asia/Almaty');
 ?>
@@ -32,7 +35,9 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
                 <li class="menu__logo"><img src="../response/image/logo.png" alt="logo"></li>
                 <li class="menu__link"><a href="../index.php">Главная</a></li>
                 <li class="menu__link"><a href="../pages/products.php">Товары</a></li>
-                <li class="menu__link"><a href="../pages/basket.php">Корзина</a></li>
+                <li class="menu__link"><a href="../pages/basket.php">Корзина
+                        <div class="score"><?php echo $count ?></div>
+                    </a></li>
                 <li class="menu__link"><a href="">Контакты</a></li>
                 <!-- <li>
 					<ul class="menu__lang">
@@ -56,7 +61,7 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
                     $ids = "";
                     foreach ($result as $product) {
                     ?>
-                    
+
                         <div class="basket__product__haracter">
                             <div class="basket__img">
                                 <img src="../<?php echo $product['pathImage'] ?>" alt="">
@@ -68,8 +73,8 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
                                 <p><?php echo $product['nameCategory'] ?></p>
                                 <div class="nameAndType__title">Высота</div>
                                 <p><?php echo $product['height'] ?></p>
-                            </div>    
-                            <div class="nameAndType">     
+                            </div>
+                            <div class="nameAndType">
                                 <div class="nameAndType__title">Ширина</div>
                                 <p><?php echo $product['width'] ?></p>
                                 <div class="nameAndType__title">Дополнительно</div>
@@ -89,9 +94,9 @@ $result = mysqli_query($connect, "SELECT zakazprocedure.*, products.name AS prod
                         <input type="text" name="height[]" value="<?php echo $product['height'] ?>" style="display:none;">
                         <input type="text" name="price[]" value="<?php echo $product['price'] ?>" style="display:none;">
                         <input type="text" name="dop[]" value="<?php echo $product['dop'] ?>" style="display:none;">
-                <?php
-                }
-                ?>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <div class="zakaz">
                     <!-- <input type="number" name = "idZakazProc" value = "<?php echo $product['id'] ?>" style = "display:none;" > -->

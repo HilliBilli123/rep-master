@@ -12,6 +12,9 @@ if ($id > 0) {
 }
 //$connect = mysqli_connect('localhost', 'root' , 'root' , 'bibala');
 $category = mysqli_query($connect, "SELECT * FROM `category`");
+$score1 = mysqli_query($connect, "SELECT count(*) FROM `zakazprocedure`");
+$score1 = mysqli_fetch_assoc($score1);
+$count = $score1['count(*)'];
 
 //print_r($result);
 //ini_set('date.timezone', 'Asia/Almaty');
@@ -35,7 +38,9 @@ $category = mysqli_query($connect, "SELECT * FROM `category`");
 				<li class="menu__logo"><img src="../response/image/logo.png" alt="logo"></li>
 				<li class="menu__link"><a href="../index.php">Главная</a></li>
 				<li class="menu__link"><a href="../pages/products.php">Товары</a></li>
-				<li class="menu__link"><a href="../pages/basket.php">Корзина</a></li>
+				<li class="menu__link"><a href="../pages/basket.php">Корзина
+						<div class="score"><?php echo $count ?></div>
+					</a></li>
 				<li class="menu__link"><a href="#footerMain">Контакты</a></li>
 				<!-- <li>
 					<ul class="menu__lang">
@@ -52,11 +57,15 @@ $category = mysqli_query($connect, "SELECT * FROM `category`");
 	<section class="page__products products">
 		<div class="product__menu _contein">
 			<ul class="product__body__menu">
-				<a href="../pages/products.php"><li class="product__menu__link">Все</li></a>
+				<a href="../pages/products.php">
+					<li class="product__menu__link">Все</li>
+				</a>
 				<?php
 				foreach ($category as $type) {
 				?>
-					<a href="../pages/products.php?id=<?php echo $type['id']; ?>"><li class="product__menu__link"><?php echo $type['nameCategory'] ?></li></a>
+					<a href="../pages/products.php?id=<?php echo $type['id']; ?>">
+						<li class="product__menu__link"><?php echo $type['nameCategory'] ?></li>
+					</a>
 				<?php
 				}
 				?>
@@ -77,7 +86,7 @@ $category = mysqli_query($connect, "SELECT * FROM `category`");
 						</div>
 						<div class="item__product__body">
 							<div class="item__product__content">
-								
+
 								<div class="item__product__text">
 									<?php echo $product['nameCategory'] ?>
 								</div>
@@ -94,7 +103,7 @@ $category = mysqli_query($connect, "SELECT * FROM `category`");
 			</div>
 		</div>
 	</section>
-	<footer class="footer" id = "footerMain">
+	<footer class="footer" id="footerMain">
 		<div class="footer__cpntainer _contein">
 			<div class="footer__body">
 

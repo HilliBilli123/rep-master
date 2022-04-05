@@ -67,14 +67,13 @@ input {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    font-size: 24px;
+    font-size: 1.5vw;
     font-weight: 700;
     /* font-family: Verdana ; */
     margin: 15px;
     text-align: center;
     position: relative;
     z-index: 2;
-
 }
 
 .circle__text {
@@ -257,7 +256,7 @@ input {
 
 .info__info {
     color: #fff;
-    font-size: 24px;
+    font-size: 1.5vw;
     letter-spacing: 3px;
 
 }
@@ -287,7 +286,7 @@ input {
 .order__contein {
     max-width: 100%;
     text-align: center;
-    font-size: 24px;
+    font-size: 1.5vw;
     color: #fff;
 }
 
@@ -311,8 +310,8 @@ input {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 1.6vw;
+    /* font-weight: 600; */
     height: 100%;
 }
 
@@ -321,11 +320,13 @@ input {
     filter: brightness(0) invert(1);
     padding: 10px;
     margin-bottom: 3px;
+    width: 10vw;
 }
 
 .menu__admin__pages__logo img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .manufact__link {
@@ -531,29 +532,29 @@ input {
 
 .zakaz__content {
     display: flex;
-	background-color: #182D4C;
-	width: 45vw;
-	height: 25vw;
-	padding: 10px;
-	color: #fff;
-	margin-right: 5px;
-	border-radius: 4px;
+    background-color: #182D4C;
+    width: 45vw;
+    height: 25vw;
+    padding: 10px;
+    color: #fff;
+    margin-right: 5px;
+    border-radius: 4px;
 }
 
 
 
 .zakaz__content__img {
-	text-align: center;
-	width: 45%;
+    text-align: center;
+    width: 45%;
     /* height: vw; */
-	background-color: #fff;
-	border-radius: 4px;
+    background-color: #fff;
+    border-radius: 4px;
 }
 
 .zakaz__content__img img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .zakaz__info__content {
@@ -566,5 +567,3 @@ input {
     font-size: 1vw;
     border-bottom: 1px solid #fff;
 }
-
-

@@ -65,6 +65,23 @@ body {
 .menu__link a {
 	font-size: 18px;
 	color: white;
+	position: relative;
+}
+
+.score {
+	position: absolute;
+	top: -10px;
+	left: -25px;
+	background-color: white;
+	color: #182D4C;
+	border-radius: 50%;
+	padding: 5px;
+	text-align: center;
+	width: 25px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .menu__lang {
@@ -169,10 +186,12 @@ body {
 	line-height: 2;
 	font-weight: 700;
 }
-.color{
+
+.color {
 	color: #182D4C;
 	background-color: white;
 }
+
 /* About END */
 
 /* Specification */
@@ -248,7 +267,7 @@ body {
 	.text__contein__text {
 		font-size: 18px;
 	}
-	
+
 
 	/* About end */
 	/* Specification */
@@ -511,6 +530,7 @@ body {
 	width: 40vw;
 	/* height: 30vw; */
 	/* width: 35%; */
+	border-radius: 4px;
 
 }
 
@@ -518,6 +538,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 40px 0;
 }
 
 .haracter__content {
@@ -561,7 +582,7 @@ body {
 	font-size: 1vw;
 }
 
-.product__calculate { 
+.product__calculate {
 	flex: 1 1 auto;
 	/* display: flex; */
 	/* flex-wrap: wrap; */
@@ -569,7 +590,7 @@ body {
 }
 
 .parametr__andDop {
-	display: flex;
+	/* display: flex; */
 	justify-content: space-between;
 
 }
@@ -583,20 +604,22 @@ body {
 .product__calculate__parametr {
 	/* display: flex;
 	flex-direction: column; */
-	width: 17vw;
-	height: 14vw;
+	/* width: 17vw; */
+	/* height: 14vw; */
 	padding: 10px;
 	border: 5px solid #182D4C;
+	position: relative;
+	margin-bottom: 10px;
+	border-radius: 4px;
 }
 
 .total__price {
-	border: 5px solid #182D4C;
-	width: 17vw;
-	height: 13vw;
-	padding: 10px;
+	position: absolute;
+	bottom: -15px;
+	right: 10px;
 }
 
-.total__price > *:not(:last-child) {
+.total__price>*:not(:last-child) {
 	margin-bottom: 5px;
 }
 
@@ -649,7 +672,7 @@ body {
 .basket__product {
 	overflow-y: auto;
 	height: 100%;
-	overflow-x:hidden;
+	overflow-x: hidden;
 }
 
 .basket {
@@ -688,7 +711,7 @@ body {
 }
 
 
-.zakaz > *:not(:last-child) {
+.zakaz>*:not(:last-child) {
 	margin-bottom: 5px;
 }
 
@@ -705,11 +728,12 @@ body {
 	color: #182D4C;
 }
 
-.personna__photo{
+.personna__photo {
 	width: 50%;
 	padding: 50px;
 }
-.personna__photo img{
+
+.personna__photo img {
 	width: 100%;
 	height: 100%;
 	object-fit: fill;
@@ -717,9 +741,10 @@ body {
 	transform: scale(-1, 1);
 }
 
-.personna__text{
+.personna__text {
 	width: 50%;
 }
-.personn__pading{
+
+.personn__pading {
 	padding: 0;
 }

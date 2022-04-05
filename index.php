@@ -1,8 +1,11 @@
 <?php
-    session_start();
-    include "inc/connect.php";
-    $result = mysqli_query($connect,"SELECT * FROM `contacts` WHERE `id` = '1'");
-	$result = mysqli_fetch_assoc($result)
+session_start();
+include "inc/connect.php";
+$result = mysqli_query($connect, "SELECT * FROM `contacts` WHERE `id` = '1'");
+$result = mysqli_fetch_assoc($result);
+$score1 = mysqli_query($connect, "SELECT count(*) FROM `zakazprocedure`");
+$score1 = mysqli_fetch_assoc($score1);
+$count = $score1['count(*)'];
 ?>
 
 <!DOCTYPE html>
@@ -17,14 +20,16 @@
 	<title>Document</title>
 </head>
 
-<body >
+<body>
 	<header class="header__main">
 		<div class="header__body _contein">
 			<ul class="header__body__menu">
 				<li class="menu__logo"><img src="response/image/logo.png" alt="logo"></li>
 				<li class="menu__link"><a href="">Главная</a></li>
 				<li class="menu__link"><a href="/pages/products.php">Товары</a></li>
-				<li class="menu__link"><a href="/pages/basket.php">Корзина</a></li>
+				<li class="menu__link"><a href="../pages/basket.php">Корзина
+						<div class="score"><?php echo $count ?></div>
+					</a></li>
 				<li class="menu__link"><a href="#footerMain">Контакты</a></li>
 				<!-- <li>
 					<ul class="menu__lang">
@@ -33,8 +38,8 @@
 					</ul>
 				</li> -->
 				<li class="menu__link menu__auth"><a href="/pages/singin.php">
-					<img src="response/image/userIcon.png" alt="">
-				</a></li>
+						<img src="response/image/userIcon.png" alt="">
+					</a></li>
 			</ul>
 		</div>
 	</header>
@@ -83,7 +88,7 @@
 										<a href="#specification" class="slider-contain__button">Узнать</a>
 									</div>
 								</div>
-							</div>	
+							</div>
 						</div>
 						<!-- <div class="image-slider__slide swiper-slide">
 							<div class="image-slider__image _ibg">
@@ -138,7 +143,7 @@
 					<div class="photo__contein">
 						<img src="response/image/window1.png" alt="">
 					</div>
-						<!-- <img src="response/image/Знак-качества_Хай.svg" alt=""> -->
+					<!-- <img src="response/image/Знак-качества_Хай.svg" alt=""> -->
 					<div class="photo__text__contein">
 						<div class="text__contein__title">Высочайшее качество</div>
 						<div class="text__contein__text">В производстве пластиковых окон наша компания использует
@@ -150,7 +155,7 @@
 						<div class="text__contein__title">Высочайшее качество</div>
 						<div class="text__contein__text">
 							В производстве пластиковых окон наша компания использует
-							германский профиль производства 
+							германский профиль производства
 						</div>
 					</div>
 					<div class="photo__contein">
@@ -165,7 +170,7 @@
 					<div class="photo__contein">
 						<img src="response/image/profildoors.png" alt="">
 					</div>
-						<!-- <img src="response/image/Знак-качества_Хай.svg" alt=""> -->
+					<!-- <img src="response/image/Знак-качества_Хай.svg" alt=""> -->
 					<div class="photo__text__contein">
 						<div class="text__contein__title">Высочайшее качество</div>
 						<div class="text__contein__text">В производстве пластиковых окон наша компания использует
@@ -177,7 +182,7 @@
 						<div class="text__contein__title">Высочайшее качество</div>
 						<div class="text__contein__text">
 							В производстве пластиковых окон наша компания использует
-							германский профиль производства 
+							германский профиль производства
 						</div>
 					</div>
 					<div class="photo__contein">
@@ -191,7 +196,7 @@
 				<div class="personna__photo">
 					<img src="response/image/pngwing.com.png" alt="">
 				</div>
-					<!-- <img src="response/image/Знак-качества_Хай.svg" alt=""> -->
+				<!-- <img src="response/image/Знак-качества_Хай.svg" alt=""> -->
 				<div class="personna__text">
 					<div class="text__contein__title">Высочайшее качество</div>
 					<div class="text__contein__text">В производстве пластиковых окон наша компания использует
@@ -231,7 +236,7 @@
 			</div>
 		</div>
 	</section>
-	<footer class="footer" id = "footerMain">
+	<footer class="footer" id="footerMain">
 		<div class="footer__cpntainer _contein">
 			<div class="footer__body">
 
@@ -250,7 +255,7 @@
 						<li><a href="" class="footer__socialMedia__link icon-facebook2">Dauletbekfacebook</a></li>
 						<li><a href="" class="footer__socialMedia__link icon-instagram">DauletbekInstagram</a></li>
 						<li><a href="" class="footer__socialMedia__link icon-telegram">DauletbekTelegram</a></li>
-						<li><a href="" class="footer__socialMedia__link icon-telegram"><?php echo $result["email"]?></a></li>
+						<li><a href="" class="footer__socialMedia__link icon-telegram"><?php echo $result["email"] ?></a></li>
 					</ul>
 				</div>
 			</div>
